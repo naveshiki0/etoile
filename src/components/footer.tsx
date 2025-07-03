@@ -12,6 +12,9 @@ export default function Footer() {
             "/top/activity/slide03.jpg",
             "/top/activity/slide04.jpg",
             "/top/activity/slide05.jpg",
+            "/top/activity/slide06.jpg",
+            "/top/activity/slide07.jpg",
+            "/top/activity/slide08.jpg",
           ].map((src, index) => (
             <div
               key={index}
@@ -31,6 +34,9 @@ export default function Footer() {
             "/top/activity/slide03.jpg",
             "/top/activity/slide04.jpg",
             "/top/activity/slide05.jpg",
+            "/top/activity/slide06.jpg",
+            "/top/activity/slide07.jpg",
+            "/top/activity/slide08.jpg",
           ].map((src, index) => (
             <div
               key={`dup-${index}`}
@@ -64,7 +70,6 @@ export default function Footer() {
           </Link>
         </div>
       </section>
-
       <div className="w-full px-6 py-12 grid gap-10 grid-cols-1 sm:grid-cols-1 md:grid-cols-1">
         <div className="flex flex-col items-center space-y-6 text-center">
           <ul className="flex flex-wrap justify-center gap-x-6">
