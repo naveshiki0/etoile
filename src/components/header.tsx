@@ -35,7 +35,6 @@ export default function Header() {
           />
         </Link>
 
-        {/* ハンバーガーメニュー */}
         <button
           className="md:hidden"
           onClick={() => setIsOpen(!isOpen)}
@@ -65,7 +64,6 @@ export default function Header() {
           </svg>
         </button>
 
-        {/* PCナビゲーション */}
         <nav className="hidden md:flex space-x-6 font-medium text-lg items-center h-full pr-36">
           {["about", "service", "interview"].map((path, i) => (
             <Link
@@ -85,7 +83,6 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* お問い合わせボタン（右端） */}
         <Link
           href="/contact"
           className="hidden md:flex items-center justify-center absolute right-0 top-0 h-full w-[160px] bg-blue-600 text-white font-bold text-lg hover:bg-blue-700 transition"
@@ -94,7 +91,6 @@ export default function Header() {
         </Link>
       </div>
 
-      {/* モバイルメニュー */}
       {isOpen && (
         <div className="md:hidden px-6 space-y-3 font-medium text-sm bg-white shadow">
           {["about", "service", "interview", "contact"].map((path, i) => (

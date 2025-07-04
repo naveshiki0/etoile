@@ -13,7 +13,7 @@ const images = ["mv01.jpg", "mv02.jpg", "mv03.jpg"];
 export default function Home() {
   return (
     <main className="bg-white">
-      <section className="relative h-[700px] overflow-hidden">
+      <section className="relative h-[800px] ">
         <Swiper
           modules={[Autoplay, EffectFade]}
           effect="fade"
@@ -131,7 +131,7 @@ export default function Home() {
           </div>
         </div>
       </section> */}
-      <section className="service relative bg-white mt-20 pb-12 overflow-hidden">
+      <section className="service relative bg-white mt-20 mb-12 overflow-hidden">
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="ml-16 text-2xl font-bold text-blue-800 border-b-4 border-blue-500 inline-block">
             Service

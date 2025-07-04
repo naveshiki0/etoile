@@ -73,27 +73,29 @@ export default function AboutPage() {
 
   return (
     <main className="bg-white text-gray-900 scroll-smooth">
-      {/* ヒーローセクション */}
-      <section className="relative h-[800px] flex items-center justify-center bg-gradient-to-br from-blue-50 to-white">
-        <div className="absolute inset-0">
+      <section className="relative h-[800px]">
+        <div className="relative w-full h-[800px]">
           <Image
-            src="/top/hero.jpg"
-            alt="エトワールの活動"
+            src="/about/mv.jpg"
+            alt=""
             fill
             className="object-cover brightness-90"
           />
         </div>
-        <div className="z-10 text-center px-4">
-          <h1 className="text-6xl font-extrabold tracking-wide text-blue-900 drop-shadow-lg animate-fade-in">
-            About
-          </h1>
-          <p className="text-2xl mt-4 text-gray-700 animate-fade-in delay-200">
-            エトワールについて
-          </p>
+        <div className="absolute inset-0 flex items-center justify-center z-20">
+          <div className="p-8 md:p-12 w-4/5 flex flex-col animate-slide-up">
+            <h1 className="pl-3 md:pl-5 text-[6rem] font-bold leading-tight text-white drop-shadow-lg whitespace-nowrap">
+              About
+            </h1>
+
+            <div className="flex items-center pl-3 md:pl-5">
+              <div className="text-2xl md:text-5xl font-bold text-white drop-shadow-lg">
+                エトワールについて
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-
-      {/* ナビゲーション */}
       <nav className="sticky top-0 z-30 backdrop-blur-md bg-white/80 border-b border-gray-200 shadow-sm">
         <ul className="flex justify-center items-center space-x-10 py-4 text-lg font-medium text-blue-800 tracking-wide">
           {[
@@ -114,8 +116,6 @@ export default function AboutPage() {
           ))}
         </ul>
       </nav>
-
-      {/* 企業理念セクション */}
       <section
         id="philosophy"
         className="bg-white py-24 px-6 relative overflow-hidden"
@@ -135,7 +135,6 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Block 1 */}
             <div className="bg-[#F8FAFC] p-6 rounded-xl shadow-sm">
               <Image
                 src="/about/about01.jpg"
@@ -152,7 +151,6 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* Block 2 */}
             <div className="bg-[#F8FAFC] p-6 rounded-xl shadow-sm">
               <Image
                 src="/about/about02.jpg"
@@ -169,7 +167,6 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* Block 3 */}
             <div className="bg-[#F8FAFC] p-6 rounded-xl shadow-sm">
               <Image
                 src="/about/about02.jpg"
@@ -240,8 +237,6 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
-
-      {/* メンバー構成（円グラフ） */}
       <section id="composition" className="py-24 bg-[#F8FAFC] scroll-mt-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -302,8 +297,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* 代表挨拶 */}
       <section id="message" className="scroll-mt-24 py-28 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14">
@@ -339,8 +332,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* 会社概要 */}
       <section id="outline" className="scroll-mt-24 py-28 bg-[#F8FAFC]">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-14">
