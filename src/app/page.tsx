@@ -338,6 +338,54 @@ export default function Home() {
           </div>
         </div>
       </section> */}
+      <section className="overflow-hidden bg-gray-50  p-0 m-0">
+        <div className="whitespace-nowrap animate-scroll flex">
+          {[
+            "/top/activity/slide01.jpg",
+            "/top/activity/slide02.jpg",
+            "/top/activity/slide03.jpg",
+            "/top/activity/slide04.jpg",
+            "/top/activity/slide05.jpg",
+            "/top/activity/slide06.jpg",
+            "/top/activity/slide07.jpg",
+            "/top/activity/slide08.jpg",
+          ].map((src, index) => (
+            <div
+              key={index}
+              className="inline-block w-64 h-80 relative shrink-0"
+            >
+              <Image
+                src={src}
+                alt={`活動写真 ${index + 1}`}
+                fill
+                className="object-cover shadow"
+              />
+            </div>
+          ))}
+          {[
+            "/top/activity/slide01.jpg",
+            "/top/activity/slide02.jpg",
+            "/top/activity/slide03.jpg",
+            "/top/activity/slide04.jpg",
+            "/top/activity/slide05.jpg",
+            "/top/activity/slide06.jpg",
+            "/top/activity/slide07.jpg",
+            "/top/activity/slide08.jpg",
+          ].map((src, index) => (
+            <div
+              key={`dup-${index}`}
+              className="inline-block w-64 h-80 relative shrink-0"
+            >
+              <Image
+                src={src}
+                alt={`活動写真（複製） ${index + 1}`}
+                fill
+                className="object-cover shadow"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }

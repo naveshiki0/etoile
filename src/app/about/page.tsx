@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import Header from "@/components/header";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function AboutPage() {
@@ -73,6 +74,7 @@ export default function AboutPage() {
 
   return (
     <main className="bg-white text-gray-900 scroll-smooth">
+      <Header />
       <section className="relative h-[800px]">
         <div className="relative w-full h-[800px]">
           <Image

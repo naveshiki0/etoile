@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import clsx from "clsx";
@@ -8,6 +9,7 @@ import clsx from "clsx";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => {
@@ -34,7 +36,6 @@ export default function Header() {
             priority
           />
         </Link>
-
         <button
           className="md:hidden"
           onClick={() => setIsOpen(!isOpen)}
@@ -63,15 +64,20 @@ export default function Header() {
             )}
           </svg>
         </button>
-
         <nav className="hidden md:flex space-x-6 font-medium text-lg items-center h-full pr-36">
           {["about", "service", "interview"].map((path, i) => (
             <Link
               key={i}
               href={`/${path}`}
               className={clsx(
-                "text-base font-bold transition-colors flex items-center justify-center h-full",
-                scrolled ? "text-gray-800" : "text-white"
+                "text-base font-bold transition-colors flex items-center justify-center h-full border-b-4",
+                pathname === `/${path}`
+                  ? "border-blue-600"
+                  : "border-transparent",
+                scrolled || ["/interview", "/contact"].includes(pathname)
+                  ? "text-gray-800"
+                  : "text-white",
+                "hover:border-blue-400"
               )}
             >
               {path === "about"
@@ -81,8 +87,7 @@ export default function Header() {
                 : "メンバーインタビュー"}
             </Link>
           ))}
-        </nav>
-
+        </nav>{" "}
         <Link
           href="/contact"
           className="hidden md:flex items-center justify-center absolute right-0 top-0 h-full w-[160px] bg-blue-600 text-white font-bold text-lg hover:bg-blue-700 transition"

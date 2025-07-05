@@ -8,12 +8,12 @@ export default function InterviewPage() {
   const allInterviews = [
     {
       slug: "intern-growth",
-      title: "エトワールでの飛躍：インターンから始まる成長と未来への挑戦",
+      title: "エトワールでの飛躍：インターンでの成長と未来への挑戦",
       date: "2025-06-24",
       excerpt:
         "加藤翔さん（同志社大学経済学部4回）が、エトワールでのインターンを通じて学んだこととは？",
       category: "インターン",
-      image: "/images/kato.jpg",
+      image: "/interview/person01.jpg",
     },
     {
       slug: "design-lead",
@@ -22,7 +22,41 @@ export default function InterviewPage() {
       excerpt:
         "プロダクトデザイナー高橋さんが語る、ユーザーに寄り添うデザインの哲学。",
       category: "デザイン",
-      image: "/images/takahashi.jpg",
+      image: "/interview/person02.jpg",
+    },
+    {
+      slug: "sales-career",
+      title: "営業の最前線で鍛えた力。成長し続けるために必要なこと",
+      date: "2025-06-10",
+      excerpt:
+        "営業部で活躍する佐藤美咲さんが語る、現場でのリアルな経験と成長の軌跡。",
+      category: "インターン",
+      image: "/interview/person03.jpg",
+    },
+    {
+      slug: "team-culture",
+      title: "仲間と築くカルチャー。エトワールのチームワークの本質",
+      date: "2025-05-28",
+      excerpt: "チームビルディングの現場から見えた、信頼と挑戦の文化とは？",
+      category: "カルチャー",
+      image: "/interview/person04.jpg",
+    },
+    {
+      slug: "global-challenge",
+      title: "世界を見据えて。海外事業担当者の挑戦と学び",
+      date: "2025-05-12",
+      excerpt:
+        "グローバル展開を担う中村さんが語る、異文化環境での働き方と発見。",
+      category: "海外展開",
+      image: "/interview/person05.jpg",
+    },
+    {
+      slug: "tech-vision",
+      title: "テクノロジーで未来を創る。エンジニアが描くエトワールの可能性",
+      date: "2025-04-30",
+      excerpt: "エンジニアの山田さんが語る、開発現場とこれからのビジョン。",
+      category: "テクノロジー",
+      image: "/interview/person06.jpg",
     },
   ];
 
@@ -49,12 +83,9 @@ export default function InterviewPage() {
       </Head>
 
       <main className="max-w-6xl mx-auto px-4 py-20">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight text-gray-900">
-          メンバーインタビュー
-        </h1>
-        <p className="text-lg text-gray-600 mb-8">
-          エトワールの仲間たちの想いや成長ストーリーをご紹介します。
-        </p>
+        <h2 className="mb-8 text-2xl font-bold text-blue-800 border-b-4 border-blue-500 inline-block">
+          Interview
+        </h2>
 
         {/* フィルタ・検索 */}
         <div className="mb-10 flex flex-col md:flex-row gap-4 md:items-center">
@@ -83,7 +114,7 @@ export default function InterviewPage() {
         </div>
 
         {/* グリッド表示 */}
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="grid md:grid-cols-3 gap-10">
           {filteredInterviews.map((item) => (
             <a
               key={item.slug}
@@ -96,7 +127,7 @@ export default function InterviewPage() {
                   alt={item.title}
                   layout="fill"
                   objectFit="cover"
-                  className="group-hover:scale-105 transition-transform duration-300"
+                  className="object-top group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="p-6">
