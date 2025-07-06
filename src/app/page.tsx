@@ -13,7 +13,7 @@ const images = ["mv01.jpg", "mv02.jpg", "mv03.jpg"];
 export default function Home() {
   return (
     <main className="bg-white">
-      <section className="relative h-[800px] ">
+      <section className="relative h-[1000px] ">
         <Swiper
           modules={[Autoplay, EffectFade]}
           effect="fade"
@@ -23,7 +23,7 @@ export default function Home() {
         >
           {images.map((img, i) => (
             <SwiperSlide key={i}>
-              <div className="relative w-full h-[800px]">
+              <div className="relative w-full h-[1000px]">
                 <Image
                   src={`/top/${img}`}
                   alt={`Hero Image ${i + 1}`}

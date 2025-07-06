@@ -86,22 +86,42 @@ const services = [
 export default function ServiceSection() {
   return (
     <main className="bg-gradient-to-b from-white via-blue-50 to-white scroll-smooth">
-      <section className="relative h-[800px]">
-        <div className="relative w-full h-[800px]">
+      <section className="relative h-[1000px] overflow-hidden">
+        <div className="relative w-full h-[1000px]">
           <Image
-            src="/about/mv.jpg"
+            src="/service/mv.jpg"
             alt=""
             fill
-            className="object-cover brightness-90"
+            className="object-cover object-right-top brightness-90"
           />
+
+          <div
+            className="absolute z-20 flex gap-16 pointer-events-none"
+            style={{
+              top: "500px",
+              right: "-200px",
+            }}
+          >
+            {[0, 1, 2].map((i) => (
+              <div
+                key={i}
+                className="w-[20px] bg-blue-600 opacity-80 animate-lineGrow origin-top"
+                style={{
+                  height: "900px",
+                  transform: "rotate(45deg)",
+                  animationDelay: `${i * 0.2}s`,
+                }}
+              />
+            ))}
+          </div>
         </div>
-        <div className="absolute inset-0 flex items-center justify-center z-20">
+
+        <div className="absolute inset-0 flex items-center justify-center z-30">
           <div className="p-8 md:p-12 w-4/5 flex flex-col animate-slide-up">
             <h1 className="pl-3 md:pl-5 text-[6rem] font-bold leading-tight text-white drop-shadow-lg whitespace-nowrap">
               Service
             </h1>
-
-            <div className="flex items-center pl-3 md:pl-5">
+            <div className="flex items-center pl-3 md:pl-5 mt-8">
               <div className="text-2xl md:text-5xl font-bold text-white drop-shadow-lg">
                 事業内容
               </div>
