@@ -1,6 +1,45 @@
 "use client";
 import Image from "next/image";
-import { Star, Users, CheckCircle } from "lucide-react";
+import NewsListSection from "@/components/listsection";
+import { Star, Users, CheckCircle, BriefcaseBusiness } from "lucide-react";
+import {
+  LineChart,
+  Line,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
+
+const data = [
+  { name: "Jan", value: 50 },
+  { name: "Feb", value: 80 },
+  { name: "Mar", value: 120 },
+  { name: "Apr", value: 200 },
+];
+const companies = [
+  "楽天グループ株式会社",
+  "富士通",
+  "NEC",
+  "野村証券",
+  "三菱UFJモルガンスタンレー証券",
+  "三菱電機",
+  "ベイカレント・コンサルティング",
+  "伊藤忠テクノソリューションズ",
+  "NTTコムウェア",
+  "住友林業",
+  "森永乳業",
+  "味の素AGF",
+  "三菱商事プラスチック",
+  "エン・ジャパン株式会社",
+  "ファーストリテーリング",
+  "DYM",
+  "株式会社ノースサンド",
+  "レイスグループ",
+  "岡三証券",
+  "レバレジーズ",
+];
 
 const services = [
   {
@@ -82,10 +121,30 @@ const services = [
     ],
   },
 ];
+const newsItems = [
+  {
+    title: "新しい学生支援プログラムがスタート",
+    date: "2025-06-12",
+    tag: "ニュース",
+    link: "/news/support-program-started",
+  },
+  {
+    title: "インターン成果報告会を実施しました",
+    date: "2025-05-28",
+    tag: "イベント",
+    link: "/news/intern-report-meeting",
+  },
+  {
+    title: "AIマッチング機能を大幅アップデート",
+    date: "2025-05-10",
+    tag: "アップデート",
+    link: "/news/ai-matching-update",
+  },
+];
 
 export default function ServiceSection() {
   return (
-    <main className="bg-gradient-to-b from-white via-blue-50 to-white scroll-smooth">
+    <main className="bg-gradient-to-b from-white via-blue-50  to-white scroll-smooth">
       <section className="relative h-[1000px] overflow-hidden">
         <div className="relative w-full h-[1000px]">
           <Image
@@ -129,7 +188,6 @@ export default function ServiceSection() {
           </div>
         </div>
       </section>
-
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-30">
           <h2 className="text-5xl pt-6 font-extrabold text-blue-900">
@@ -200,6 +258,81 @@ export default function ServiceSection() {
           )}
         </div>
       </div>
+      <section className="py-20 px-6">
+        <div className="max-w-4xl mx-auto flex flex-col items-center gap-12">
+          <div className="w-full">
+            <Image
+              src="/service/csr.jpg"
+              alt="学生支援"
+              width={800}
+              height={500}
+              className="rounded-lg shadow-lg w-full object-cover"
+            />
+          </div>
+
+          <div className="w-full text-center">
+            <h2 className="text-4xl font-extrabold text-blue-900 mb-4">
+              学生支援プラットフォーム
+            </h2>
+            <p className="text-lg text-gray-700 mb-10">
+              面談進捗・企業マッチング・フィードバックを一括管理。
+              <br className="hidden md:block" />
+              成長を可視化し、よりよい支援を。
+            </p>
+          </div>
+        </div>
+
+        <div className="max-w-6xl mx-auto mt-20">
+          <h3 className="text-2xl font-bold text-blue-900 text-center mb-8">
+            支援実績の可視化
+          </h3>
+          <ResponsiveContainer width="100%" height={300}>
+            <LineChart data={data}>
+              <Line
+                type="monotone"
+                dataKey="value"
+                stroke="#2563eb"
+                strokeWidth={3}
+              />
+              <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+      </section>{" "}
+      <section className="pt-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-extrabold text-blue-900 mb-4 flex justify-center items-center gap-2">
+              <BriefcaseBusiness className="w-8 h-8 text-blue-700" />
+              インターン生内定企業
+            </h2>
+            <p className="text-lg text-gray-700">
+              実際に成果を出し、多くの優良企業へ内定しています。
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+            {companies.map((company, idx) => (
+              <div
+                key={idx}
+                className="bg-white shadow-lg rounded-xl p-4 flex items-center justify-center text-center text-blue-800 text-sm font-semibold hover:shadow-xl transition-all border border-blue-100"
+              >
+                {company}
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16 text-center">
+            <p className="text-sm text-gray-500">
+              ※ 一部抜粋。その他にも多数の実績があります。
+            </p>
+          </div>
+        </div>
+      </section>{" "}
+      <NewsListSection title="News" items={newsItems} linkToAll="/news" />
     </main>
   );
 }

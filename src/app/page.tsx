@@ -7,8 +7,29 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
+import NewsListSection from "@/components/listsection";
 
 const images = ["mv01.jpg", "mv02.jpg", "mv03.jpg"];
+const interviewItems = [
+  {
+    title: "学生メンバーが語るリアルな経験と成長",
+    date: "2025-05-26",
+    tag: "インタビュー",
+    link: "/interview/student",
+  },
+  {
+    title: "現役社員が語るやりがいとエトワールの文化",
+    date: "2025-05-20",
+    tag: "インタビュー",
+    link: "/interview/staff",
+  },
+  {
+    title: "地域連携プロジェクトを通じた学びとは",
+    date: "2025-05-12",
+    tag: "インタビュー",
+    link: "/interview/ceo",
+  },
+];
 
 export default function Home() {
   return (
@@ -220,61 +241,11 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-white py-20">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-2xl font-bold text-blue-800 border-b-4 border-blue-500 inline-block mb-10">
-            Interview
-          </h2>
-          <div className="border-t-4 border-blue-500 bg-white shadow-lg rounded-lg p-6">
-            <div className="space-y-6">
-              {[
-                {
-                  title: "学生メンバーが語るリアルな経験と成長",
-                  date: "2025-05-26",
-                  tag: "インタビュー",
-                  link: "/interview/student",
-                },
-                {
-                  title: "現役社員が語るやりがいとエトワールの文化",
-                  date: "2025-05-20",
-                  tag: "インタビュー",
-                  link: "/interview/staff",
-                },
-                {
-                  title: "地域連携プロジェクトを通じた学びとは",
-                  date: "2025-05-12",
-                  tag: "インタビュー",
-                  link: "/interview/ceo",
-                },
-              ].map(({ title, date, tag, link }) => (
-                <Link
-                  href={link}
-                  key={title}
-                  className="block border-b pb-4 last:border-none"
-                >
-                  <div className="text-sm text-gray-500 mb-1">
-                    {date}
-                    <span className="ml-2 bg-blue-100 text-blue-600 text-xs px-2 py-0.5 rounded">
-                      {tag}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-800 hover:underline">
-                    {title}
-                  </h3>
-                </Link>
-              ))}
-            </div>
-            <div className="mt-8">
-              <Link
-                href="/interview"
-                className="inline-block bg-gray-900 text-white px-6 py-2 rounded-full hover:bg-gray-700 transition"
-              >
-                インタビューをもっと見る →
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <NewsListSection
+        title="Interview"
+        items={interviewItems}
+        linkToAll="/interview"
+      />
       {/* <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl font-bold mb-10 text-center">インタビュー</h2>

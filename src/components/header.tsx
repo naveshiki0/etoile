@@ -19,6 +19,9 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const isNewsPage = pathname === "/news";
+  const showWhiteLogo = isNewsPage && !scrolled;
+
   return (
     <header
       className={clsx(
@@ -29,7 +32,7 @@ export default function Header() {
       <div className="px-6 md:px-10 py-1 flex items-center justify-between transition-all duration-300">
         <Link href="/" className="transition-all duration-300">
           <Image
-            src="/etoile_logo.svg"
+            src={showWhiteLogo ? "/etoile_logo_white.svg" : "/etoile_logo.svg"}
             alt="Logo"
             width={scrolled ? 50 : 70}
             height={scrolled ? 15 : 30}
@@ -65,7 +68,7 @@ export default function Header() {
           </svg>
         </button>
         <nav className="hidden md:flex space-x-6 font-medium text-lg items-center h-full pr-36">
-          {["about", "service", "interview"].map((path, i) => (
+          {["about", "service", "interview", "news"].map((path, i) => (
             <Link
               key={i}
               href={`/${path}`}
@@ -84,7 +87,9 @@ export default function Header() {
                 ? "エトワールについて"
                 : path === "service"
                 ? "事業内容"
-                : "メンバーインタビュー"}
+                : path === "interview"
+                ? "メンバーインタビュー"
+                : "社内ニュース"}
             </Link>
           ))}
         </nav>{" "}
@@ -98,25 +103,28 @@ export default function Header() {
 
       {isOpen && (
         <div className="md:hidden px-6 space-y-3 font-medium text-sm bg-white shadow">
-          {["about", "service", "interview", "contact"].map((path, i) => (
-            <Link key={i} href={`/${path}`} onClick={() => setIsOpen(false)}>
-              {path === "contact" ? (
-                <span className="block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition text-center">
-                  お問い合わせ
-                </span>
-              ) : (
-                <span className="block">
-                  {
+          {["about", "service", "interview", "news", "contact"].map(
+            (path, i) => (
+              <Link key={i} href={`/${path}`} onClick={() => setIsOpen(false)}>
+                {path === "contact" ? (
+                  <span className="block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition text-center">
+                    お問い合わせ
+                  </span>
+                ) : (
+                  <span className="block">
                     {
-                      about: "エトワールについて",
-                      service: "事業内容",
-                      interview: "メンバーインタビュー",
-                    }[path]
-                  }
-                </span>
-              )}
-            </Link>
-          ))}
+                      {
+                        about: "エトワールについて",
+                        service: "事業内容",
+                        interview: "メンバーインタビュー",
+                        news: "社内ニュース",
+                      }[path]
+                    }
+                  </span>
+                )}
+              </Link>
+            )
+          )}
         </div>
       )}
     </header>
