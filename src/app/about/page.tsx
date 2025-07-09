@@ -3,78 +3,19 @@
 import Image from "next/image";
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import Header from "@/components/header";
+import {
+  dataGrade,
+  dataGender,
+  dataIntern,
+  dataFaculty,
+  options,
+} from "@/data/about";
+
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function AboutPage() {
-  const dataGrade = {
-    labels: ["1回生", "2回生", "3回生", "4回生"],
-    datasets: [
-      {
-        label: "学年構成比",
-        data: [4, 8, 57, 31],
-        backgroundColor: ["#3B82F6", "#60A5FA", "#93C5FD", "#BFDBFE"],
-        borderWidth: 1,
-      },
-    ],
-  };
-
-  const dataGender = {
-    labels: ["男性", "女性"],
-    datasets: [
-      {
-        label: "男女比",
-        data: [87, 13],
-        backgroundColor: ["#2563EB", "#FBBF24"],
-        borderWidth: 1,
-      },
-    ],
-  };
-
-  const dataIntern = {
-    labels: ["なし"],
-    datasets: [
-      {
-        label: "インターン経験",
-        data: [100],
-        backgroundColor: ["#3B82F6"],
-        borderWidth: 1,
-      },
-    ],
-  };
-
-  const dataFaculty = {
-    labels: ["文系", "理系"],
-    datasets: [
-      {
-        label: "学部比率",
-        data: [60, 40],
-        backgroundColor: ["#2563EB", "#10B981"],
-        borderWidth: 1,
-      },
-    ],
-  };
-
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: "bottom" as const,
-        labels: {
-          font: { size: 16 },
-          color: "#1E40AF",
-        },
-      },
-      tooltip: {
-        enabled: true,
-        bodyFont: { size: 16 },
-      },
-    },
-  };
-
   return (
     <main className="bg-white text-gray-900 scroll-smooth">
-      <Header />
       <section className="relative h-[1000px] overflow-hidden">
         <div className="relative w-full h-[1000px]">
           <Image

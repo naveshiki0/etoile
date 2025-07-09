@@ -1,3 +1,5 @@
+export const categories = ["すべて", "ニュース", "アップデート", "イベント"];
+export const itemsPerPage = 9;
 export const newsItems = [
   {
     slug: "support-program-started",

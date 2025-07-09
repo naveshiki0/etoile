@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { useParams } from "next/navigation";
 import { allInterviews } from "@/data/interview";
+import ArticleDetail from "@/components/articledetail";
 
 export default function Page() {
   const { slug } = useParams() as { slug: string };
@@ -19,35 +19,14 @@ export default function Page() {
   }
 
   return (
-    <main className="max-w-4xl mx-auto px-4 py-20">
-      <div className="mb-10">
-        <span className="inline-block text-xs font-semibold bg-blue-100 text-blue-800 px-3 py-1 rounded-full mb-2">
-          {interview.category}
-        </span>
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          {interview.title}
-        </h1>
-        <time className="text-sm text-gray-500">{interview.date}</time>
-        <p className="mt-2 text-gray-700 text-sm">
-          {interview.name}（{interview.university}）
-        </p>
-      </div>
-
-      <div className="mb-10">
-        <div className="relative w-full h-72 mb-6">
-          <Image
-            src={interview.image}
-            alt={interview.name}
-            fill
-            className="rounded-lg object-cover"
-          />
-        </div>
-        <div className="prose prose-blue max-w-none text-gray-800 text-lg leading-relaxed">
-          {interview.content.split("\n").map((para, i) => (
-            <p key={i}>{para}</p>
-          ))}
-        </div>
-      </div>
-    </main>
+    <ArticleDetail
+      title={interview.title}
+      date={interview.date}
+      category={interview.category}
+      name={interview.name}
+      university={interview.university}
+      image={interview.image}
+      content={interview.content}
+    />
   );
 }

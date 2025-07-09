@@ -33,7 +33,6 @@ export default function InterviewPage() {
           Interview
         </h2>
 
-        {/* フィルタ・検索 */}
         <div className="mb-10 flex flex-col md:flex-row gap-4 md:items-center">
           <div className="flex gap-2 flex-wrap">
             {categories.map((cat) => (
@@ -59,7 +58,6 @@ export default function InterviewPage() {
           />
         </div>
 
-        {/* グリッド表示 */}
         <div className="grid md:grid-cols-3 gap-10">
           {filteredInterviews.map((item) => (
             <a

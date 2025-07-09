@@ -9,8 +9,8 @@ import clsx from "clsx";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isReady, setIsReady] = useState(false); // ← 初期化完了フラグ
-  const [hide, setHide] = useState(false); // ← 非表示かどうか
+  const [isReady, setIsReady] = useState(false);
+  const [hide, setHide] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -21,7 +21,6 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // イントロ表示判定（初回ホームのみ）
   useEffect(() => {
     if (pathname === "/") {
       const hasSeenIntro = sessionStorage.getItem("etoile_intro_shown");
@@ -30,19 +29,19 @@ export default function Header() {
         const timer = setTimeout(() => {
           sessionStorage.setItem("etoile_intro_shown", "true");
           setHide(false);
-          setIsReady(true); // ← 判定が終わったので描画OK
+          setIsReady(true);
         }, 4000);
         return () => clearTimeout(timer);
       }
     }
-    setIsReady(true); // ← イントロ不要ページなら即描画
+    setIsReady(true);
   }, [pathname]);
 
   const isWhiteTextPage =
     /^\/(about|service|news)?$/.test(pathname) || pathname === "/";
   const showWhiteLogo = pathname === "/news" && !scrolled;
 
-  if (!isReady || hide) return null; // ← 初期判定中 or 非表示フラグなら描画しない
+  if (!isReady || hide) return null;
 
   return (
     <header
@@ -93,8 +92,6 @@ export default function Header() {
             )}
           </svg>
         </button>
-
-        {/* ナビゲーション */}
         <nav className="hidden md:flex space-x-6 font-medium text-lg items-center h-full pr-36">
           {["about", "service", "interview", "news"].map((path, i) => (
             <Link

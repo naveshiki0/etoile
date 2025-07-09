@@ -2,10 +2,7 @@
 
 import { useState } from "react";
 import NewsCard from "@/components/newscard";
-import { newsItems } from "@/data/news";
-
-const categories = ["すべて", "ニュース", "アップデート", "イベント"];
-const itemsPerPage = 9;
+import { newsItems, categories, itemsPerPage } from "@/data/news";
 
 export default function NewsPage() {
   const [selectedCategory, setSelectedCategory] = useState("すべて");
@@ -32,7 +29,6 @@ export default function NewsPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 pb-24">
-      {/* Hero Section */}
       <div className="relative w-full bg-blue-900 text-white py-28 px-6 text-center">
         <h1 className="text-5xl font-extrabold mb-4 tracking-tight">NEWS</h1>
         <p className="text-lg text-blue-100 max-w-2xl mx-auto">
@@ -40,7 +36,6 @@ export default function NewsPage() {
         </p>
       </div>
 
-      {/* Filter Section */}
       <section className="max-w-7xl mx-auto px-6 -mt-12 relative z-10">
         <div className="bg-white rounded-xl shadow-lg p-6 md:p-10">
           <div className="flex flex-wrap justify-between items-center gap-4 mb-6">
@@ -74,7 +69,6 @@ export default function NewsPage() {
             />
           </div>
 
-          {/* Grid News Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {paginatedItems.length > 0 ? (
               paginatedItems.map((item) => (
@@ -87,7 +81,6 @@ export default function NewsPage() {
             )}
           </div>
 
-          {/* Pagination */}
           {totalPages > 1 && (
             <div className="mt-12 flex justify-center items-center gap-2 flex-wrap text-sm font-medium">
               {Array.from({ length: totalPages }, (_, i) => (
