@@ -3,7 +3,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
-import { allInterviews } from "@/data/interview";
+import { allInterviews, ITEMS_PER_PAGE } from "@/data/interview";
 
 export default function InterviewPage() {
   const categories = [
@@ -12,6 +12,7 @@ export default function InterviewPage() {
   ];
   const [selectedCategory, setSelectedCategory] = useState("すべて");
   const [searchQuery, setSearchQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
 
   const filteredInterviews = allInterviews.filter((i) => {
     const matchCategory =
@@ -21,6 +22,18 @@ export default function InterviewPage() {
       .includes(searchQuery.toLowerCase());
     return matchCategory && matchSearch;
   });
+
+  const totalPages = Math.ceil(filteredInterviews.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const paginatedInterviews = filteredInterviews.slice(
+    startIndex,
+    startIndex + ITEMS_PER_PAGE
+  );
+
+  const handleCategoryChange = (cat: string) => {
+    setSelectedCategory(cat);
+    setCurrentPage(1);
+  };
 
   return (
     <>
@@ -43,7 +56,7 @@ export default function InterviewPage() {
                     ? "bg-blue-600 text-white"
                     : "bg-white text-gray-700 border-gray-300"
                 } hover:bg-blue-500 hover:text-white transition`}
-                onClick={() => setSelectedCategory(cat)}
+                onClick={() => handleCategoryChange(cat)}
               >
                 {cat}
               </button>
@@ -54,12 +67,15 @@ export default function InterviewPage() {
             placeholder="タイトル検索"
             className="mt-2 md:mt-0 md:ml-auto border border-gray-300 px-4 py-2 rounded w-full md:w-64"
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => {
+              setSearchQuery(e.target.value);
+              setCurrentPage(1);
+            }}
           />
         </div>
 
         <div className="grid md:grid-cols-3 gap-10">
-          {filteredInterviews.map((item) => (
+          {paginatedInterviews.map((item) => (
             <a
               key={item.slug}
               href={`/interview/${item.slug}`}
@@ -86,6 +102,24 @@ export default function InterviewPage() {
             </a>
           ))}
         </div>
+
+        {totalPages > 1 && (
+          <div className="mt-12 flex justify-center items-center gap-2">
+            {Array.from({ length: totalPages }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentPage(index + 1)}
+                className={`w-8 h-8 rounded-full text-sm font-bold border ${
+                  currentPage === index + 1
+                    ? "bg-blue-600 text-white"
+                    : "bg-white text-gray-700 border-gray-300"
+                } hover:bg-blue-500 hover:text-white transition`}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </div>
+        )}
 
         {filteredInterviews.length === 0 && (
           <p className="text-center text-gray-500 mt-12">

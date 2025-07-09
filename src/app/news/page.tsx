@@ -82,15 +82,15 @@ export default function NewsPage() {
           </div>
 
           {totalPages > 1 && (
-            <div className="mt-12 flex justify-center items-center gap-2 flex-wrap text-sm font-medium">
+            <div className="mt-12 flex justify-center items-center gap-2 flex-wrap">
               {Array.from({ length: totalPages }, (_, i) => (
                 <button
                   key={i + 1}
                   onClick={() => setCurrentPage(i + 1)}
-                  className={`px-4 py-2 rounded border ${
+                  className={`w-8 h-8 rounded-full text-sm font-bold border ${
                     currentPage === i + 1
                       ? "bg-blue-600 text-white border-blue-600"
-                      : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
+                      : "bg-white text-gray-700 border-gray-300 hover:bg-blue-500 hover:text-white transition"
                   }`}
                 >
                   {i + 1}
