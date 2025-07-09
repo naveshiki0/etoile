@@ -63,7 +63,7 @@ export default function Home() {
         </div>
       ) : (
         <>
-          <section className="relative h-[1000px]">
+          <section className="relative h-[900px]">
             <Swiper
               modules={[Autoplay, EffectFade]}
               effect="fade"
@@ -73,7 +73,7 @@ export default function Home() {
             >
               {images.map((img, i) => (
                 <SwiperSlide key={i}>
-                  <div className="relative w-full h-[1000px]">
+                  <div className="relative w-full h-[900px]">
                     <Image
                       src={`/top/${img}`}
                       alt={`Hero Image ${i + 1}`}

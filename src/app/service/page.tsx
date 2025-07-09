@@ -24,8 +24,8 @@ export default function ServiceSection() {
   }));
   return (
     <main className="bg-gradient-to-b from-white via-blue-50  to-white scroll-smooth">
-      <section className="relative h-[1000px] overflow-hidden">
-        <div className="relative w-full h-[1000px]">
+      <section className="relative h-[900px] overflow-hidden">
+        <div className="relative w-full h-[900px]">
           <Image
             src="/service/mv.jpg"
             alt=""

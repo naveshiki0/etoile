@@ -16,8 +16,8 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 export default function AboutPage() {
   return (
     <main className="bg-white text-gray-900 scroll-smooth">
-      <section className="relative h-[1000px] overflow-hidden">
-        <div className="relative w-full h-[1000px]">
+      <section className="relative h-[900px] overflow-hidden">
+        <div className="relative w-full h-[900px]">
           <Image
             src="/about/mv.jpg"
             alt=""
