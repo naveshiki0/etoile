@@ -1,4 +1,3 @@
-// TODO:後ほど消す
 export const newsItems = [
   {
     slug: "support-program-started",

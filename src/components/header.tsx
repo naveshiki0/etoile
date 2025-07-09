@@ -9,6 +9,8 @@ import clsx from "clsx";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isReady, setIsReady] = useState(false); // ← 初期化完了フラグ
+  const [hide, setHide] = useState(false); // ← 非表示かどうか
   const pathname = usePathname();
 
   useEffect(() => {
@@ -19,8 +21,28 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const isNewsPage = pathname === "/news";
-  const showWhiteLogo = isNewsPage && !scrolled;
+  // イントロ表示判定（初回ホームのみ）
+  useEffect(() => {
+    if (pathname === "/") {
+      const hasSeenIntro = sessionStorage.getItem("etoile_intro_shown");
+      if (!hasSeenIntro) {
+        setHide(true);
+        const timer = setTimeout(() => {
+          sessionStorage.setItem("etoile_intro_shown", "true");
+          setHide(false);
+          setIsReady(true); // ← 判定が終わったので描画OK
+        }, 4000);
+        return () => clearTimeout(timer);
+      }
+    }
+    setIsReady(true); // ← イントロ不要ページなら即描画
+  }, [pathname]);
+
+  const isWhiteTextPage =
+    /^\/(about|service|news)?$/.test(pathname) || pathname === "/";
+  const showWhiteLogo = pathname === "/news" && !scrolled;
+
+  if (!isReady || hide) return null; // ← 初期判定中 or 非表示フラグなら描画しない
 
   return (
     <header
@@ -39,13 +61,17 @@ export default function Header() {
             priority
           />
         </Link>
+
         <button
           className="md:hidden"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="メニューを開く"
         >
           <svg
-            className="w-6 h-6"
+            className={clsx(
+              "w-6 h-6",
+              isWhiteTextPage && !scrolled ? "text-white" : "text-black"
+            )}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -67,6 +93,8 @@ export default function Header() {
             )}
           </svg>
         </button>
+
+        {/* ナビゲーション */}
         <nav className="hidden md:flex space-x-6 font-medium text-lg items-center h-full pr-36">
           {["about", "service", "interview", "news"].map((path, i) => (
             <Link
@@ -77,9 +105,7 @@ export default function Header() {
                 pathname === `/${path}`
                   ? "border-blue-600"
                   : "border-transparent",
-                scrolled || ["/interview", "/contact"].includes(pathname)
-                  ? "text-gray-800"
-                  : "text-white",
+                isWhiteTextPage && !scrolled ? "text-white" : "text-gray-800",
                 "hover:border-blue-400"
               )}
             >
@@ -92,7 +118,8 @@ export default function Header() {
                 : "社内ニュース"}
             </Link>
           ))}
-        </nav>{" "}
+        </nav>
+
         <Link
           href="/contact"
           className="hidden md:flex items-center justify-center absolute right-0 top-0 h-full w-[160px] bg-blue-600 text-white font-bold text-lg hover:bg-blue-700 transition"

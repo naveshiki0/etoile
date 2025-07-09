@@ -3,63 +3,9 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
+import { allInterviews } from "@/data/interview";
 
 export default function InterviewPage() {
-  const allInterviews = [
-    {
-      slug: "intern-growth",
-      title: "エトワールでの飛躍：インターンでの成長と未来への挑戦",
-      date: "2025-06-24",
-      excerpt:
-        "加藤翔さん（同志社大学経済学部4回）が、エトワールでのインターンを通じて学んだこととは？",
-      category: "インターン",
-      image: "/interview/person01.jpg",
-    },
-    {
-      slug: "design-lead",
-      title: "デザインの力で会社を変える。エトワールデザイナーの挑戦",
-      date: "2025-06-15",
-      excerpt:
-        "プロダクトデザイナー高橋さんが語る、ユーザーに寄り添うデザインの哲学。",
-      category: "デザイン",
-      image: "/interview/person02.jpg",
-    },
-    {
-      slug: "sales-career",
-      title: "営業の最前線で鍛えた力。成長し続けるために必要なこと",
-      date: "2025-06-10",
-      excerpt:
-        "営業部で活躍する佐藤美咲さんが語る、現場でのリアルな経験と成長の軌跡。",
-      category: "インターン",
-      image: "/interview/person03.jpg",
-    },
-    {
-      slug: "team-culture",
-      title: "仲間と築くカルチャー。エトワールのチームワークの本質",
-      date: "2025-05-28",
-      excerpt: "チームビルディングの現場から見えた、信頼と挑戦の文化とは？",
-      category: "カルチャー",
-      image: "/interview/person04.jpg",
-    },
-    {
-      slug: "global-challenge",
-      title: "世界を見据えて。海外事業担当者の挑戦と学び",
-      date: "2025-05-12",
-      excerpt:
-        "グローバル展開を担う中村さんが語る、異文化環境での働き方と発見。",
-      category: "海外展開",
-      image: "/interview/person05.jpg",
-    },
-    {
-      slug: "tech-vision",
-      title: "テクノロジーで未来を創る。エンジニアが描くエトワールの可能性",
-      date: "2025-04-30",
-      excerpt: "エンジニアの山田さんが語る、開発現場とこれからのビジョン。",
-      category: "テクノロジー",
-      image: "/interview/person06.jpg",
-    },
-  ];
-
   const categories = [
     "すべて",
     ...Array.from(new Set(allInterviews.map((i) => i.category))),
@@ -138,9 +84,6 @@ export default function InterviewPage() {
                 <h2 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors mt-1">
                   {item.title}
                 </h2>
-                <p className="text-gray-600 mt-2 text-sm leading-relaxed">
-                  {item.excerpt}
-                </p>
               </div>
             </a>
           ))}

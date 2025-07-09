@@ -1,47 +1,22 @@
 "use client";
 
 import Image from "next/image";
+import { useParams } from "next/navigation";
+import { allInterviews } from "@/data/interview";
 
-// --- 型定義 ---
-type Params = {
-  slug: string;
-};
+export default function Page() {
+  const { slug } = useParams() as { slug: string };
+  const interview = allInterviews.find((item) => item.slug === slug);
 
-type Interview = {
-  title: string;
-  date: string;
-  name: string;
-  university: string;
-  category: string;
-  image: string;
-  content: string;
-};
-
-// --- 仮データ ---
-const interviewData: Record<string, Interview> = {
-  "intern-growth": {
-    title: "エトワールでの飛躍：インターンから始まる成長と未来への挑戦",
-    date: "2025-06-24",
-    name: "加藤翔",
-    university: "同志社大学 経済学部 経済学科 4回生",
-    category: "インターン",
-    image: "/images/kato.jpg",
-    content: `インターンを始めた当初は右も左も分からなかった私ですが、周囲のサポートや挑戦の機会により大きく成長できました。\n自ら考え動く経験を通じて、自信とやりがいを手に入れました。`,
-  },
-  "design-lead": {
-    title: "デザインの力で会社を変える。エトワールデザイナーの挑戦",
-    date: "2025-06-15",
-    name: "高橋美咲",
-    university: "京都大学 文学部 3回生",
-    category: "デザイン",
-    image: "/images/takahashi.jpg",
-    content: `デザインは単なる装飾ではなく、ユーザー体験そのものです。\nエトワールでは、実際のプロダクト開発に深く関わりながら、ユーザー視点を大切にしたデザインを実現しています。`,
-  },
-};
-
-// --- メインページ ---
-export default function Page({ params }: { params: Params }) {
-  const interview: Interview = interviewData[params.slug];
+  if (!interview) {
+    return (
+      <div className="max-w-4xl mx-auto py-20 text-center">
+        <h1 className="text-2xl font-bold text-red-600">
+          記事が見つかりません
+        </h1>
+      </div>
+    );
+  }
 
   return (
     <main className="max-w-4xl mx-auto px-4 py-20">
@@ -63,13 +38,12 @@ export default function Page({ params }: { params: Params }) {
           <Image
             src={interview.image}
             alt={interview.name}
-            layout="fill"
-            objectFit="cover"
-            className="rounded-lg"
+            fill
+            className="rounded-lg object-cover"
           />
         </div>
         <div className="prose prose-blue max-w-none text-gray-800 text-lg leading-relaxed">
-          {interview.content.split("\n").map((para: string, i: number) => (
+          {interview.content.split("\n").map((para, i) => (
             <p key={i}>{para}</p>
           ))}
         </div>

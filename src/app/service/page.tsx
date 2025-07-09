@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import NewsListSection from "@/components/listsection";
+import { newsItems } from "@/data/news";
 import { Star, Users, CheckCircle, BriefcaseBusiness } from "lucide-react";
 import {
   LineChart,
@@ -121,28 +122,15 @@ const services = [
     ],
   },
 ];
-const newsItems = [
-  {
-    title: "新しい学生支援プログラムがスタート",
-    date: "2025-06-12",
-    tag: "ニュース",
-    link: "/news/support-program-started",
-  },
-  {
-    title: "インターン成果報告会を実施しました",
-    date: "2025-05-28",
-    tag: "イベント",
-    link: "/news/intern-report-meeting",
-  },
-  {
-    title: "AIマッチング機能を大幅アップデート",
-    date: "2025-05-10",
-    tag: "アップデート",
-    link: "/news/ai-matching-update",
-  },
-];
 
 export default function ServiceSection() {
+  const formattedItems = newsItems.slice(0, 10).map((item) => ({
+    title: item.title,
+    date: item.date,
+    tag: item.tag,
+    imageUrl: item.thumbnail,
+    link: `/news/${item.slug}`,
+  }));
   return (
     <main className="bg-gradient-to-b from-white via-blue-50  to-white scroll-smooth">
       <section className="relative h-[1000px] overflow-hidden">
@@ -332,7 +320,14 @@ export default function ServiceSection() {
           </div>
         </div>
       </section>{" "}
-      <NewsListSection title="News" items={newsItems} linkToAll="/news" />
+      <div>
+        <NewsListSection
+          title="最新のお知らせ"
+          subtitle="エトワールの取り組み"
+          items={formattedItems}
+          linkToAll="/news"
+        />
+      </div>
     </main>
   );
 }
