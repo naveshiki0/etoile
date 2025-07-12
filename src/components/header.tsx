@@ -38,8 +38,10 @@ export default function Header() {
   }, [pathname]);
 
   const isWhiteTextPage =
-    /^\/(about|service|news)?$/.test(pathname) || pathname === "/";
-  const showWhiteLogo = pathname === "/news" && !scrolled;
+    /^\/(about|service|news|interview)?$/.test(pathname) || pathname === "/";
+
+  const showWhiteLogo =
+    (pathname === "/news" || pathname === "/interview") && !scrolled;
 
   if (!isReady || hide) return null;
 

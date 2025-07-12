@@ -14,14 +14,12 @@ interface NewsItem {
 
 interface NewsListSectionProps {
   title?: string;
-  subtitle?: string;
   items: NewsItem[];
   linkToAll: string;
 }
 
 export default function NewsListSection({
   title = "Blog",
-  subtitle = "社内ニュース",
   items,
   linkToAll,
 }: NewsListSectionProps) {
@@ -75,8 +73,9 @@ export default function NewsListSection({
   return (
     <section className="bg-gray-100 py-16">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl font-bold mb-2">{title}</h2>
-        <p className="text-sm text-gray-500 mb-8">{subtitle}</p>
+        <h2 className="text-4xl font-bold text-blue-800 border-b-4 border-blue-500 inline-block mb-10">
+          {title}
+        </h2>
         <div
           ref={scrollRef}
           className="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar pb-2 cursor-grab select-none"

@@ -9,7 +9,12 @@ import {
   dataIntern,
   dataFaculty,
   options,
+  bluePalette,
 } from "@/data/about";
+
+[dataGrade, dataGender, dataIntern, dataFaculty].forEach((data) => {
+  data.datasets[0].backgroundColor = bluePalette;
+});
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 

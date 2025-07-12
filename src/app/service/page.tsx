@@ -191,7 +191,6 @@ export default function ServiceSection() {
       <div>
         <NewsListSection
           title="News"
-          subtitle="社内ニュース"
           items={formattedItems}
           linkToAll="/news"
         />

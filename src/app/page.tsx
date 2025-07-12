@@ -90,8 +90,8 @@ export default function Home() {
 
             <div className="absolute inset-0 flex items-center justify-center z-20">
               <div className="p-8 md:p-12 w-4/5 flex flex-col animate-slide-up">
-                <h1 className="p-3 md:p-5 text-2xl md:text-5xl font-bold leading-tight text-white drop-shadow-lg whitespace-nowrap">
-                  <span className="ml-4 text-2xl md:text-[4rem] font-bold text-white drop-shadow-lg">
+                <h1 className="p-3 md:p-5 text-2xl md:text-7xl font-bold leading-tight text-white drop-shadow-lg whitespace-nowrap">
+                  <span className="ml-4 text-2xl md:text-[8rem] font-bold text-white drop-shadow-lg">
                     我々
                   </span>
                   とともに
@@ -99,18 +99,18 @@ export default function Home() {
 
                 <div className="flex items-center p-3 md:p-5">
                   <div className="flex items-center space-x-2">
-                    <div className="bg-white rounded px-2 py-1 relative -mt-6 shadow">
+                    <div className="bg-white rounded-2xl px-2 py-1 relative -mt-6 shadow">
                       <Image
                         src="/top/mv-future.png"
                         alt=""
-                        width={175}
-                        height={175}
+                        width={250}
+                        height={250}
                         className="block"
                       />
                     </div>
-                    <div className="text-2xl md:text-5xl font-bold text-white drop-shadow-lg">
+                    <div className="text-2xl md:text-7xl font-bold text-white drop-shadow-lg">
                       を
-                      <span className="ml-4 text-2xl md:text-[5rem] font-bold text-white drop-shadow-lg">
+                      <span className="ml-4 text-2xl md:text-[7rem] font-bold text-white drop-shadow-lg">
                         創
                       </span>
                       りに行こう
@@ -129,9 +129,9 @@ export default function Home() {
           </section>
 
           <section className="service relative bg-white mt-20 mb-12 overflow-hidden">
-            <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="ml-16 text-2xl font-bold text-blue-800 border-b-4 border-blue-500 inline-block">
-                Service
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <h2 className="ml-16 text-4xl font-bold text-blue-800 border-b-4 border-blue-500 inline-block">
+                About
               </h2>
 
               <div className="flex flex-col lg:flex-row gap-8 items-start">
@@ -147,7 +147,7 @@ export default function Home() {
 
                 <div className="w-full lg:w-1/2 space-y-5">
                   {["インターン事業", "イベント事業", "就活支援事業"].map(
-                    (title, i) => (
+                    (aboutTitle, i) => (
                       <div className="fade-in-up" key={i}>
                         <div className="flex items-center space-x-2">
                           <div className="bg-white rounded relative">
@@ -159,11 +159,11 @@ export default function Home() {
                               className="block"
                             />
                           </div>
-                          <h3 className="text-xl font-black text-gray-800">
-                            {title}
+                          <h3 className="text-3xl font-black text-gray-800">
+                            {aboutTitle}
                           </h3>
                         </div>
-                        <p className="text-gray-700 font-semibold">
+                        <p className="text-2xl text-gray-700 font-semibold">
                           {i === 0
                             ? "営業力・育成力・マネジメント力を養う事業"
                             : i === 1
@@ -186,10 +186,66 @@ export default function Home() {
               </div>
             </div>
           </section>
+          <section className="service relative bg-white mt-20 mb-12 overflow-hidden">
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <h2 className="ml-16 text-4xl font-bold text-blue-800 border-b-4 border-blue-500 inline-block">
+                Service
+              </h2>
 
+              <div className="flex flex-col lg:flex-row gap-8 items-start">
+                <div className="w-full lg:w-1/2 fade-in-up">
+                  <Image
+                    src="/top/loglass_about.png"
+                    alt="サービス画像"
+                    width={900}
+                    height={700}
+                    className="w-full object-cover rounded"
+                  />
+                </div>
+
+                <div className="w-full lg:w-1/2 space-y-5">
+                  {["インターン事業", "イベント事業", "就活支援事業"].map(
+                    (ServiceTitle, i) => (
+                      <div className="fade-in-up" key={i}>
+                        <div className="flex items-center space-x-2">
+                          <div className="bg-white rounded relative">
+                            <Image
+                              src="/top/star.png"
+                              alt=""
+                              width={20}
+                              height={20}
+                              className="block"
+                            />
+                          </div>
+                          <h3 className="text-3xl font-black text-gray-800">
+                            {ServiceTitle}
+                          </h3>
+                        </div>
+                        <p className="text-2xl text-gray-700 font-semibold">
+                          {i === 0
+                            ? "営業力・育成力・マネジメント力を養う事業"
+                            : i === 1
+                            ? "サークルと連携したマッチング型イベント事業"
+                            : "主体的に動ける人材を育てる支援事業"}
+                        </p>
+                      </div>
+                    )
+                  )}
+
+                  <div className="fade-in-up">
+                    <Link
+                      href="/service"
+                      className="inline-block bg-black text-white text-sm py-2 px-6 rounded-2xl hover:bg-blue-700"
+                    >
+                      詳しく見る →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
           <NewsListSection
             title="Interview"
-            subtitle="メンバーインタビュー"
             items={interviewItems}
             linkToAll="/interview"
           />
