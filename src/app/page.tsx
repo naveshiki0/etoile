@@ -15,7 +15,7 @@ const images = ["mv01.jpg", "mv02.jpg", "mv03.jpg"];
 const interviewItems = allInterviews.map((item) => ({
   title: item.title,
   date: item.date,
-  tag: item.category,
+  category: item.category,
   imageUrl: item.image,
   link: `/interview/${item.slug}`,
 }));

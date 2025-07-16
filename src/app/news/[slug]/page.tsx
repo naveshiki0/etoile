@@ -16,7 +16,7 @@ export default async function NewsDetailPage({ params }: Props) {
     <ArticleDetail
       title={news.title}
       date={news.date}
-      category={news.tag}
+      category={news.category}
       image={news.thumbnail}
       content={stripHtmlTags(news.content)}
     />

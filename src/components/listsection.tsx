@@ -7,7 +7,7 @@ import Link from "next/link";
 interface NewsItem {
   title: string;
   date: string;
-  tag: string;
+  category: string;
   imageUrl: string;
   link: string;
 }
@@ -80,7 +80,7 @@ export default function NewsListSection({
           ref={scrollRef}
           className="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar pb-2 cursor-grab select-none"
         >
-          {items.map(({ title, date, tag, imageUrl, link }) => (
+          {items.map(({ title, date, category, imageUrl, link }) => (
             <Link
               key={title}
               href={link}
@@ -100,7 +100,7 @@ export default function NewsListSection({
                   {title}
                 </h3>
                 <span className="inline-block text-xs px-2 py-0.5 bg-gray-100 border border-gray-400 rounded">
-                  {tag}
+                  {category}
                 </span>
               </div>
             </Link>

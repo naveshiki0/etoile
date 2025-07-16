@@ -18,7 +18,7 @@ export default function ServiceSection() {
   const formattedItems = newsItems.slice(0, 10).map((item) => ({
     title: item.title,
     date: item.date,
-    tag: item.tag,
+    category: item.category,
     imageUrl: item.thumbnail,
     link: `/news/${item.slug}`,
   }));
