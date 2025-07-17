@@ -40,12 +40,10 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="bg-white">
+    <main className="bg-gray-200">
       {showIntro ? (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-white text-blue-900 overflow-hidden">
-          <div className="absolute w-[300px] h-[300px] animate-ping border-2 border-blue-800 rounded-full opacity-30" />
-          <div className="absolute w-[200px] h-[200px] animate-ping-slow border border-blue-900 rounded-full opacity-40" />
-
+          <div className="absolute w-[300px] h-[300px] animate-custom-ping border-2 border-blue-300 rounded-full opacity-30" />
           <div className="absolute inset-0 bg-[url('/top/intro-grid.png')] bg-cover bg-center opacity-10" />
 
           <div className="relative z-10 text-center animate-fadein">
@@ -56,14 +54,15 @@ export default function Home() {
               height={70}
               className="mx-auto drop-shadow-xl"
             />
-            <p className="mt-4 text-blue-500 text-sm font-mono tracking-widest animate-flicker">
-              WELCOME TO ETOILE
+            <p className=" mt-4 text-blue-500 text-sm font-mono tracking-widest animate-flicker">
+              我々とともに将来を創りに行こう
             </p>
           </div>
         </div>
       ) : (
         <>
-          <section className="relative h-[900px]">
+          <section className="relative h-[900px] font-sans">
+            {" "}
             <Swiper
               modules={[Autoplay, EffectFade]}
               effect="fade"
@@ -85,50 +84,54 @@ export default function Home() {
                 </SwiperSlide>
               ))}
             </Swiper>
+            <div className="absolute inset-0 bg-gray-400/20 z-10" />
+            <div className="absolute inset-0 flex items-center justify-start z-20 px-4 md:px-10">
+              <div className="w-full max-w-6xl ml-48 mr-auto pl-4 space-y-6 relative">
+                {/* <div className="absolute -left-10 top-4 h-56 w-1 bg-gradient-to-b from-blue-400 via-indigo-500 to-blue-800 rounded-full shadow-lg animate-pulse" /> */}
 
-            <div className="absolute inset-0 bg-blue-600/20 z-10" />
-
-            <div className="absolute inset-0 flex items-center justify-center z-20">
-              <div className="p-8 md:p-12 w-4/5 flex flex-col animate-slide-up">
-                <h1 className="p-3 md:p-5 text-2xl md:text-7xl font-bold leading-tight text-white drop-shadow-lg whitespace-nowrap">
-                  <span className="ml-4 text-2xl md:text-[8rem] font-bold text-white drop-shadow-lg">
+                <h1 className="text-white font-extrabold flex items-baseline gap-4 leading-none">
+                  <span className="text-7xl md:text-8xl drop-shadow-[2px_2px_4px_rgba(0,0,0,0.4)]">
                     我々
                   </span>
-                  とともに
+                  <span className="text-4xl md:text-5xl text-white/80 font-medium tracking-wider">
+                    とともに
+                  </span>
                 </h1>
 
-                <div className="flex items-center p-3 md:p-5">
-                  <div className="flex items-center space-x-2">
-                    <div className="bg-white rounded-2xl px-2 py-1 relative -mt-6 shadow">
-                      <Image
-                        src="/top/mv-future.png"
-                        alt=""
-                        width={250}
-                        height={250}
-                        className="block"
-                      />
-                    </div>
-                    <div className="text-2xl md:text-7xl font-bold text-white drop-shadow-lg">
-                      を
-                      <span className="ml-4 text-2xl md:text-[7rem] font-bold text-white drop-shadow-lg">
-                        創
-                      </span>
-                      りに行こう
-                    </div>
-                  </div>
-                </div>
+                <h2 className="text-white flex flex-wrap items-baseline gap-4 leading-tight">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-blue-500 text-7xl md:text-8xl font-extrabold animate-fade-in-once drop-shadow-sm">
+                    将来
+                  </span>
+                  <span className="text-4xl md:text-5xl text-white/80 font-medium">
+                    を
+                  </span>
+                  <span className="text-7xl md:text-8xl text-white font-extrabold drop-shadow-[2px_2px_6px_rgba(0,0,0,0.3)]">
+                    創
+                  </span>
+                  <span className="text-4xl md:text-5xl text-white/80 font-medium">
+                    りに行こう
+                  </span>
+                </h2>
               </div>
             </div>
-
-            <div className="absolute bottom-0 w-full overflow-hidden z-30 pointer-events-none">
+            <div className="absolute bottom-10 w-full z-30 flex items-center justify-center px-6 pointer-events-none">
+              <div className="flex items-center w-full max-w-5xl">
+                <div className="flex-1 border-t border-white/30" />
+                <span className="px-6 text-white/70 text-lg md:text-xl tracking-wider font-medium whitespace-nowrap">
+                  Let’s build our future together.
+                </span>
+                <div className="flex-1 border-t border-white/30" />
+              </div>
+            </div>
+            {/* <div className="absolute bottom-0 w-full overflow-hidden z-30 pointer-events-none">
               <div className="inline-block animate-scroll-svg text-blue-600/40 font-bold text-[9rem] tracking-wide whitespace-nowrap">
                 <span className="mx-6">Let’s build our future together.</span>
                 <span className="mx-6">Let’s build our future together.</span>
               </div>
-            </div>
+            </div> */}
           </section>
 
-          <section className="service relative bg-white mt-20 mb-12 overflow-hidden">
+          <section className="service relative bg-gray-200 mt-20 mb-12 overflow-hidden">
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="ml-16 text-4xl font-bold text-blue-800 border-b-4 border-blue-500 inline-block">
                 About
@@ -150,7 +153,7 @@ export default function Home() {
                     (aboutTitle, i) => (
                       <div className="fade-in-up" key={i}>
                         <div className="flex items-center space-x-2">
-                          <div className="bg-white rounded relative">
+                          <div className="bg-gray-200 rounded relative">
                             <Image
                               src="/top/star.png"
                               alt=""
@@ -186,7 +189,7 @@ export default function Home() {
               </div>
             </div>
           </section>
-          <section className="service relative bg-white mt-20 mb-12 overflow-hidden">
+          <section className="service relative bg-gray-200 mt-20 mb-12 overflow-hidden">
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="ml-16 text-4xl font-bold text-blue-800 border-b-4 border-blue-500 inline-block">
                 Service
@@ -208,7 +211,7 @@ export default function Home() {
                     (ServiceTitle, i) => (
                       <div className="fade-in-up" key={i}>
                         <div className="flex items-center space-x-2">
-                          <div className="bg-white rounded relative">
+                          <div className="bg-gray-200 rounded relative">
                             <Image
                               src="/top/star.png"
                               alt=""
@@ -250,7 +253,7 @@ export default function Home() {
             linkToAll="/interview"
           />
 
-          <section className="overflow-hidden bg-gray-50 p-0 m-0">
+          <section className="overflow-hidden bg-gray-200 p-0 m-0">
             <div className="whitespace-nowrap animate-scroll flex">
               {[...Array(2)].flatMap((_, idx) =>
                 [

@@ -18,44 +18,23 @@
   }
 }
 
-@keyframes scroll-svg {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-25%);
-  }
-}
-
-.animate-scroll-svg {
-  display: inline-flex;
-  white-space: nowrap;
-  animation: scroll-svg 30s linear infinite;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-scroll {
-  display: inline-flex;
-  white-space: nowrap;
-  animation: scroll 25s linear infinite;
-}
-
-.text-shadow {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+/* Utility Styles */
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .swiper-hero .swiper-slide {
@@ -69,12 +48,22 @@ body {
   height: 100%;
 }
 
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+/* Keyframes */
+@keyframes scroll-svg {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-25%);
+  }
 }
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 @keyframes fade-in {
   from {
@@ -95,14 +84,6 @@ body {
     display: none;
   }
 }
-
-.animate-fade-in {
-  animation: fade-in 1s ease-out forwards;
-}
-.animate-intro {
-  animation: intro 1s ease-out 2.2s forwards;
-}
-
 @keyframes move-grid {
   0% {
     transform: translate(0, 0);
@@ -111,10 +92,6 @@ body {
     transform: translate(-40px, -40px);
   }
 }
-.animate-move-grid {
-  animation: move-grid 20s linear infinite;
-}
-
 @keyframes spin-slow {
   from {
     transform: rotate(0deg);
@@ -123,10 +100,6 @@ body {
     transform: rotate(360deg);
   }
 }
-.animate-spin-slow {
-  animation: spin-slow 12s linear infinite;
-}
-
 @keyframes flicker {
   0%,
   19%,
@@ -144,10 +117,6 @@ body {
     opacity: 0.4;
   }
 }
-.animate-flicker {
-  animation: flicker 2s infinite;
-}
-
 @keyframes fadein {
   from {
     opacity: 0;
@@ -158,6 +127,150 @@ body {
     transform: scale(1);
   }
 }
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes zoomSlideUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+@keyframes bounceGradient {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes fadeInOnce {
+  0% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes customPing {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  75% {
+    transform: scale(2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+@keyframes pixelAssemble {
+  0% {
+    opacity: 0;
+    transform: translate3d(calc(var(--x) * 1px), calc(var(--y) * 1px), 0)
+      scale(0.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+@keyframes dotGather {
+  0% {
+    transform: translate(var(--x), var(--y)) scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-dot-gather {
+  animation: dotGather 1s ease-out forwards;
+  animation-delay: var(--delay);
+}
+
+.pixel-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #1d4ed8;
+  border-radius: 50%;
+  animation: pixelAssemble 1.2s forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+.animate-custom-ping {
+  animation: customPing 6s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-scroll-svg {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: scroll-svg 30s linear infinite;
+}
+.animate-scroll {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: scroll 25s linear infinite;
+}
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+}
+.animate-intro {
+  animation: intro 1s ease-out 3s forwards;
+}
+.animate-move-grid {
+  animation: move-grid 20s linear infinite;
+}
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+.animate-flicker {
+  animation: flicker 2s infinite;
+}
 .animate-fadein {
   animation: fadein 1.5s ease-out forwards;
+}
+.animate-slide-up {
+  animation: slideUp 1s ease-out forwards;
+}
+.animate-fade-in-delay {
+  animation: fadeIn 1.8s ease-out forwards;
+}
+.animate-zoom-slide-up {
+  animation: zoomSlideUp 1.2s ease-out both;
+}
+.animate-bounce-gradient {
+  animation: bounceGradient 2.5s infinite;
+}
+.animate-fade-in-once {
+  animation: fadeInOnce 1.8s ease-out both;
 }

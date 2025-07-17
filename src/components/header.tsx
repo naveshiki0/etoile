@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import clsx from "clsx";
+import { Send } from "lucide-react";
+import SearchBox from "@/components/searchbox";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +14,8 @@ export default function Header() {
   const [isReady, setIsReady] = useState(false);
   const [hide, setHide] = useState(false);
   const pathname = usePathname();
+  const [showSearch, setShowSearch] = useState(false);
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     const onScroll = () => {
@@ -43,6 +47,11 @@ export default function Header() {
   const showWhiteLogo =
     (pathname === "/news" || pathname === "/interview") && !scrolled;
 
+  const showDarkSend =
+    pathname === "/contact" ||
+    scrolled ||
+    /^\/(news|interview)\/[^/]+$/.test(pathname);
+
   if (!isReady || hide) return null;
 
   return (
@@ -62,7 +71,6 @@ export default function Header() {
             priority
           />
         </Link>
-
         <button
           className="md:hidden"
           onClick={() => setIsOpen(!isOpen)}
@@ -94,13 +102,13 @@ export default function Header() {
             )}
           </svg>
         </button>
-        <nav className="hidden md:flex space-x-6 font-medium text-lg items-center h-full pr-36">
+        <nav className="hidden md:flex flex-1 justify-center space-x-6 font-medium text-lg items-center h-full">
           {["about", "service", "interview", "news"].map((path, i) => (
             <Link
               key={i}
               href={`/${path}`}
               className={clsx(
-                "text-base font-bold transition-colors flex items-center justify-center h-full border-b-4",
+                "text-sm tracking-widest uppercase transition-colors flex items-center justify-center h-full border-b-4",
                 pathname === `/${path}`
                   ? "border-blue-600"
                   : "border-transparent",
@@ -108,23 +116,42 @@ export default function Header() {
                 "hover:border-blue-400"
               )}
             >
-              {path === "about"
-                ? "エトワールについて"
-                : path === "service"
-                ? "事業内容"
-                : path === "interview"
-                ? "メンバーインタビュー"
-                : "社内ニュース"}
+              {path}
             </Link>
           ))}
         </nav>
-
-        <Link
-          href="/contact"
-          className="hidden md:flex items-center justify-center absolute right-0 top-0 h-full w-[160px] bg-blue-600 text-white font-bold text-lg hover:bg-blue-700 transition"
-        >
-          お問い合わせ
-        </Link>
+        <div className="absolute right-0 top-0 h-full flex items-center space-x-4 pr-4">
+          <SearchBox />
+          <Link
+            href="/contact"
+            className={clsx(
+              "md:flex items-center justify-center h-full w-[80px]",
+              showDarkSend ? "text-gray-800" : "text-white",
+              "transition duration-300"
+            )}
+          >
+            <Send size={22} />
+          </Link>
+        </div>{" "}
+        {showSearch && (
+          <div className="absolute right-[120px] top-full mt-2 bg-white rounded shadow-md p-2 z-50 w-64">
+            <input
+              type="text"
+              placeholder="検索ワードを入力..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              className="w-full px-3 py-2 border rounded text-sm text-gray-800"
+            />
+            <button
+              onClick={() => {
+                setShowSearch(false);
+              }}
+              className="mt-2 w-full bg-blue-600 text-white text-sm py-1 rounded hover:bg-blue-700"
+            >
+              検索
+            </button>
+          </div>
+        )}
       </div>
 
       {isOpen && (
@@ -133,19 +160,12 @@ export default function Header() {
             (path, i) => (
               <Link key={i} href={`/${path}`} onClick={() => setIsOpen(false)}>
                 {path === "contact" ? (
-                  <span className="block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition text-center">
-                    お問い合わせ
+                  <span className="block bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition text-center">
+                    contact
                   </span>
                 ) : (
-                  <span className="block">
-                    {
-                      {
-                        about: "エトワールについて",
-                        service: "事業内容",
-                        interview: "メンバーインタビュー",
-                        news: "社内ニュース",
-                      }[path]
-                    }
+                  <span className="block text-gray-700 uppercase tracking-wider">
+                    {path}
                   </span>
                 )}
               </Link>
