@@ -11,6 +11,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import DecorativeImage from "@/components/decorativeImage";
 
 export default function ServiceSection() {
   return (
@@ -58,7 +59,13 @@ export default function ServiceSection() {
           </div>
         </div>
       </section>
-      <div className="max-w-7xl mx-auto mt-9">
+      <section className="max-w-7xl mx-auto mt-9 relative">
+        <DecorativeImage
+          position="bottom-left"
+          width={900}
+          height={900}
+          className="opacity-50 -z-10"
+        />
         <div className="text-center mb-10">
           <h2 className="text-5xl pt-6 font-extrabold text-blue-900">
             Our Services
@@ -87,7 +94,7 @@ export default function ServiceSection() {
                   <h3 className="text-2xl font-bold text-blue-800 mb-4">
                     {heading}
                   </h3>
-                  <p className="text-gray-700 leading-relaxed whitespace-pre-wrap mb-4">
+                  <p className="text-gray-900 leading-relaxed whitespace-pre-wrap mb-4">
                     {description}
                   </p>
 
@@ -103,7 +110,7 @@ export default function ServiceSection() {
                             {text}
                           </h4>
                         </div>
-                        <p className="text-sm text-gray-600 leading-normal">
+                        <p className="text-sm text-gray-800 leading-normal">
                           {desc}
                         </p>
                       </div>
@@ -127,12 +134,13 @@ export default function ServiceSection() {
             )
           )}
         </div>
-      </div>
+      </section>
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto mt-20">
           <h3 className="text-2xl font-bold text-blue-900 text-center mb-8">
             支援実績の可視化
           </h3>
+
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={data}>
               <Line
