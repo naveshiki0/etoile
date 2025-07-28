@@ -15,7 +15,7 @@ export default function InterviewCard({ item }: { item: InterviewItem }) {
   return (
     <Link
       href={`/interview/${item.slug}`}
-      className="block bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition border"
+      className="block bg-gray-100/20 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition border"
     >
       <div className="relative w-full h-56">
         <Image

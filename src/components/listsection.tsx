@@ -1,10 +1,10 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-interface NewsItem {
+export interface NewsItem {
   title: string;
   date: string;
   category: string;
@@ -12,17 +12,28 @@ interface NewsItem {
   link: string;
 }
 
-interface NewsListSectionProps {
-  title?: string;
+export interface NewsTab {
+  key: string;
+  label: string;
   items: NewsItem[];
   linkToAll: string;
 }
 
+interface NewsListSectionProps {
+  tabs: NewsTab[];
+  defaultTabKey?: string;
+}
+
 export default function NewsListSection({
-  title = "Blog",
-  items,
-  linkToAll,
+  tabs,
+  defaultTabKey,
 }: NewsListSectionProps) {
+  const [activeKey, setActiveKey] = useState<string>(
+    defaultTabKey ?? tabs[0].key
+  );
+  const activeTab = tabs.find((t) => t.key === activeKey)!;
+
+  // 横スクロール用 refs
   const scrollRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
   const startX = useRef(0);
@@ -38,17 +49,14 @@ export default function NewsListSection({
       startX.current = e.pageX - slider.offsetLeft;
       scrollLeft.current = slider.scrollLeft;
     };
-
     const onMouseLeave = () => {
       isDragging.current = false;
       slider.classList.remove("cursor-grabbing");
     };
-
     const onMouseUp = () => {
       isDragging.current = false;
       slider.classList.remove("cursor-grabbing");
     };
-
     const onMouseMove = (e: MouseEvent) => {
       if (!isDragging.current) return;
       e.preventDefault();
@@ -68,19 +76,38 @@ export default function NewsListSection({
       slider.removeEventListener("mouseup", onMouseUp);
       slider.removeEventListener("mousemove", onMouseMove);
     };
-  }, []);
+  }, [activeKey]);
 
   return (
-    <section className="bg-gray-100 py-16">
+    <section className="bg-gray-50 py-16">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-blue-800 border-b-4 border-blue-500 inline-block mb-10">
-          {title}
-        </h2>
+        {/* タイトル＋タブ */}
+        <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-8">
+          {/* タブボタン */}
+          <ul className="flex space-x-6 mt-4 md:mt-0 ">
+            {tabs.map(({ key, label }) => (
+              <li key={key}>
+                <button
+                  onClick={() => setActiveKey(key)}
+                  className={`pb-2 text-4xl font-bold transition-colors ${
+                    activeKey === key
+                      ? "border-b-2 border-blue-600 text-blue-600"
+                      : "border-b-2 border-transparent text-gray-600 hover:text-gray-800"
+                  }`}
+                >
+                  {label}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* カード一覧（横スクロール） */}
         <div
           ref={scrollRef}
           className="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar pb-2 cursor-grab select-none"
         >
-          {items.map(({ title, date, category, imageUrl, link }) => (
+          {activeTab.items.map(({ title, date, category, imageUrl, link }) => (
             <Link
               key={title}
               href={link}
@@ -106,9 +133,11 @@ export default function NewsListSection({
             </Link>
           ))}
         </div>
+
+        {/* 「すべて見る」リンク */}
         <div className="flex justify-end mt-8">
           <Link
-            href={linkToAll}
+            href={activeTab.linkToAll}
             className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-700 transition"
           >
             <span>すべて見る</span>

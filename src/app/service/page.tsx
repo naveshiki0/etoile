@@ -1,7 +1,5 @@
 "use client";
 import Image from "next/image";
-import NewsListSection from "@/components/listsection";
-import { newsItems } from "@/data/news";
 import { data, companies, services } from "@/data/service";
 import { BriefcaseBusiness } from "lucide-react";
 import {
@@ -15,15 +13,8 @@ import {
 } from "recharts";
 
 export default function ServiceSection() {
-  const formattedItems = newsItems.slice(0, 10).map((item) => ({
-    title: item.title,
-    date: item.date,
-    category: item.category,
-    imageUrl: item.thumbnail,
-    link: `/news/${item.slug}`,
-  }));
   return (
-    <main className="bg-gradient-to-b from-white via-blue-50  to-white scroll-smooth">
+    <main className="bg-gray-59 scroll-smooth">
       <section className="relative h-[900px] overflow-hidden">
         <div className="relative w-full h-[900px]">
           <Image
@@ -67,8 +58,8 @@ export default function ServiceSection() {
           </div>
         </div>
       </section>
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-30">
+      <div className="max-w-7xl mx-auto mt-9">
+        <div className="text-center mb-10">
           <h2 className="text-5xl pt-6 font-extrabold text-blue-900">
             Our Services
           </h2>
@@ -188,13 +179,6 @@ export default function ServiceSection() {
           </div>
         </div>
       </section>{" "}
-      <div>
-        <NewsListSection
-          title="News"
-          items={formattedItems}
-          linkToAll="/news"
-        />
-      </div>
     </main>
   );
 }

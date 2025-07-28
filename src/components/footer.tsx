@@ -7,7 +7,7 @@ export default function Footer() {
   const isContactPage = pathname === "/contact";
 
   return (
-    <footer className="bg-gray-200 text-white pt-5">
+    <footer className="bg-gray-50 text-white pt-5">
       {!isContactPage && (
         <section className="py-24">
           <div className="max-w-6xl mx-auto px-8">
