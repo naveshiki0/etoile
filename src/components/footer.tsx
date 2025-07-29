@@ -53,6 +53,11 @@ export default function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/news" className="hover:text-blue-600">
+                ニュース
+              </Link>
+            </li>
+            <li>
               <Link href="/contact" className="hover:text-blue-600">
                 お問い合わせ
               </Link>
