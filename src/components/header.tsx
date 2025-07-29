@@ -5,8 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import clsx from "clsx";
-import { Send } from "lucide-react";
-import SearchBox from "@/components/searchbox";
+import { Send, Building } from "lucide-react";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,8 +13,6 @@ export default function Header() {
   const [isReady, setIsReady] = useState(false);
   const [hide, setHide] = useState(false);
   const pathname = usePathname();
-  const [showSearch, setShowSearch] = useState(false);
-  const [query, setQuery] = useState("");
 
   useEffect(() => {
     const onScroll = () => {
@@ -54,6 +51,8 @@ export default function Header() {
 
   if (!isReady || hide) return null;
 
+  const isDarkText = showDarkSend;
+
   return (
     <header
       className={clsx(
@@ -71,6 +70,7 @@ export default function Header() {
             priority
           />
         </Link>
+
         <button
           className="md:hidden"
           onClick={() => setIsOpen(!isOpen)}
@@ -102,6 +102,7 @@ export default function Header() {
             )}
           </svg>
         </button>
+
         <nav className="hidden md:flex flex-1 justify-center space-x-6 font-medium text-lg items-center h-full">
           {["about", "service", "interview", "news"].map((path, i) => (
             <Link
@@ -120,38 +121,30 @@ export default function Header() {
             </Link>
           ))}
         </nav>
+
         <div className="absolute right-0 top-0 h-full flex items-center space-x-4 pr-4">
-          <SearchBox />
+          <Link
+            href="/about#outline"
+            className={clsx(
+              "p-2 transition",
+              isDarkText ? "text-black" : "text-white"
+            )}
+            aria-label="会社概要"
+          >
+            <Building size={22} />
+          </Link>
+
           <Link
             href="/contact"
             className={clsx(
-              "md:flex items-center justify-center h-full w-[80px]",
-              showDarkSend ? "text-gray-800" : "text-white",
-              "transition duration-300"
+              "md:flex items-center justify-center h-full w-[80px] transition duration-300",
+              showDarkSend ? "text-gray-800" : "text-white"
             )}
+            aria-label="お問い合わせ"
           >
             <Send size={22} />
           </Link>
-        </div>{" "}
-        {showSearch && (
-          <div className="absolute right-[120px] top-full mt-2 bg-white rounded shadow-md p-2 z-50 w-64">
-            <input
-              type="text"
-              placeholder="検索ワードを入力..."
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              className="w-full px-3 py-2 border rounded text-sm text-gray-800"
-            />
-            <button
-              onClick={() => {
-                setShowSearch(false);
-              }}
-              className="mt-2 w-full bg-blue-600 text-white text-sm py-1 rounded hover:bg-blue-700"
-            >
-              検索
-            </button>
-          </div>
-        )}
+        </div>
       </div>
 
       {isOpen && (

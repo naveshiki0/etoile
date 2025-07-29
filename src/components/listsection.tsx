@@ -33,7 +33,6 @@ export default function NewsListSection({
   );
   const activeTab = tabs.find((t) => t.key === activeKey)!;
 
-  // 横スクロール用 refs
   const scrollRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
   const startX = useRef(0);
@@ -81,9 +80,7 @@ export default function NewsListSection({
   return (
     <section className="bg-gray-50 py-16">
       <div className="max-w-7xl mx-auto px-6">
-        {/* タイトル＋タブ */}
         <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-8">
-          {/* タブボタン */}
           <ul className="flex space-x-6 mt-4 md:mt-0 ">
             {tabs.map(({ key, label }) => (
               <li key={key}>
@@ -102,7 +99,6 @@ export default function NewsListSection({
           </ul>
         </div>
 
-        {/* カード一覧（横スクロール） */}
         <div
           ref={scrollRef}
           className="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar pb-2 cursor-grab select-none"
@@ -134,7 +130,6 @@ export default function NewsListSection({
           ))}
         </div>
 
-        {/* 「すべて見る」リンク */}
         <div className="flex justify-end mt-8">
           <Link
             href={activeTab.linkToAll}

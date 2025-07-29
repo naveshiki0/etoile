@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 interface ArticleProps {
@@ -19,6 +21,8 @@ export default function ArticleDetail({
   name,
   university,
 }: ArticleProps) {
+  const lines = content.split("\n");
+
   return (
     <main className="max-w-4xl mx-auto px-4 py-20">
       <div className="mb-10">
@@ -45,9 +49,15 @@ export default function ArticleDetail({
         </div>
 
         <div className="prose prose-blue max-w-none text-gray-800 text-lg leading-relaxed">
-          {content.split("\n").map((para, i) => (
-            <p key={i}>{para}</p>
-          ))}
+          {lines.map((line, i) => {
+            const trimmed = line.trim();
+            const isQuestion = trimmed.startsWith("Q.");
+            return (
+              <p key={i} className={isQuestion ? "font-bold" : undefined}>
+                {line}
+              </p>
+            );
+          })}
         </div>
       </div>
     </main>
