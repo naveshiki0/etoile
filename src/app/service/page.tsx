@@ -181,7 +181,7 @@ export default function ServiceSection() {
           </div>
 
           <div className="mt-16 text-center">
-            <p className="text-sm text-gray-500">
+            <p className="text-sm pb-5 text-gray-500">
               ※ 一部抜粋。その他にも多数の実績があります。
             </p>
           </div>
