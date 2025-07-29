@@ -229,7 +229,10 @@ export default function AboutPage() {
                       <h3 className="text-2xl font-semibold text-gray-900 mb-2 text-center">
                         {item.title}
                       </h3>
-                      <p className="text-gray-700 text-center">{item.desc}</p>
+                      {/* ここを修正 */}
+                      <p className="text-gray-700 text-center whitespace-pre-wrap">
+                        {item.desc}
+                      </p>
                     </div>
                   ))}
                 </div>
