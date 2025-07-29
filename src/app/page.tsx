@@ -9,52 +9,19 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 
 import NewsListSection, { NewsTab } from "@/components/listsection";
+import { slideImg, images, aboutItems, serviceItems } from "@/data/top";
 import { allInterviews } from "@/data/interview";
 import { newsItems } from "@/data/news";
-import { services } from "@/data/service";
-import {
-  Briefcase,
-  Users,
-  GraduationCap,
-  Star,
-  Calendar,
-  CheckCircle,
-} from "lucide-react";
-
-const images = ["mv01.jpg", "mv02.jpg", "mv03.jpg"];
-
-const aboutItems = [
-  {
-    title: "インターン事業",
-    desc: "実践的なプロジェクトで営業力・マネジメント力を体得。先輩社員と一緒にクライアント訪問を行い、実際の商談経験も積めます。",
-    icon: Briefcase,
-  },
-  {
-    title: "イベント事業",
-    desc: "学生主体のイベント企画運営で企業連携を推進。大規模スポーツ大会から小規模セミナーまで、多彩なイベントを成功に導きます。",
-    icon: Users,
-  },
-  {
-    title: "就活支援事業",
-    desc: "ES添削・模擬面接・企業研究ワークショップで万全のキャリアサポート。業界トップ企業出身のコーチから直接フィードバックを受けられます。",
-    icon: GraduationCap,
-  },
-];
 
 export default function AboutPage() {
   const [showIntro, setShowIntro] = useState(true);
-
-  // Intro アニメーション制御
   useEffect(() => {
     const seen = sessionStorage.getItem("etoile_intro_shown");
     if (seen) return void setShowIntro(false);
-
     sessionStorage.setItem("etoile_intro_shown", "true");
     const timer = setTimeout(() => setShowIntro(false), 3000);
     return () => clearTimeout(timer);
   }, []);
-
-  // Interview データ整形
   const interviewItems = allInterviews.map((item) => ({
     title: item.title,
     date: item.date,
@@ -62,8 +29,6 @@ export default function AboutPage() {
     imageUrl: item.image,
     link: `/interview/${item.slug}`,
   }));
-
-  // News データ整形（先頭10件）
   const formattedNewsItems = newsItems.slice(0, 10).map((item) => ({
     title: item.title,
     date: item.date,
@@ -71,8 +36,6 @@ export default function AboutPage() {
     imageUrl: item.thumbnail,
     link: `/news/${item.slug}`,
   }));
-
-  // タブ用データ
   const newsTabs: NewsTab[] = [
     {
       key: "interview",
@@ -112,7 +75,6 @@ export default function AboutPage() {
         </div>
       ) : (
         <>
-          {/* ヒーローセクション */}
           <section className="relative h-[900px] font-sans">
             <Swiper
               modules={[Autoplay, EffectFade]}
@@ -172,9 +134,7 @@ export default function AboutPage() {
               </div>
             </div>
           </section>
-
-          {/* About セクション */}
-          <section id="about" className="py-20 bg-gray-50">
+          <section id="about" className="py-20 bg-blue-900">
             <div className="max-w-8xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-4 h-64 md:h-[600px] relative overflow-hidden rounded-xl shadow-lg">
                 <Image
@@ -186,19 +146,79 @@ export default function AboutPage() {
               </div>
               <div className="md:col-span-8 flex flex-col space-y-16">
                 <div className="text-center">
-                  <h2 className="relative inline-block text-4xl md:text-5xl font-extrabold text-gray-900">
+                  <h2 className="relative inline-block text-4xl md:text-5xl font-extrabold text-white">
                     About
                     <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-36 h-1 bg-blue-600 rounded"></span>
                   </h2>
-                  <p className="mt-4 text-lg font-medium text-gray-800">
+                  <p className="mt-4 text-lg font-medium text-white">
                     Three Pillars of Growth
                   </p>
-                  <p className="mt-2 max-w-2xl mx-auto text-gray-700">
+                  <p className="mt-2 max-w-2xl mx-auto text-white">
                     実践型インターン・学生主体イベント・就活支援で主体的成長を後押しします。
                   </p>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
                   {aboutItems.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow p-8 flex flex-col items-center"
+                    >
+                      <div className="bg-blue-100 p-4 rounded-full mb-4">
+                        <item.icon className="text-blue-600" size={32} />
+                      </div>
+                      <h3 className="text-2xl font-semibold text-gray-900 mb-2 text-center">
+                        {item.title}
+                      </h3>
+                      <p className="text-lg text-gray-900 text-center">
+                        <br />
+                        {item.desc} <br />
+                        &nbsp;
+                      </p>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex items-center pt-7">
+                  <div className="flex-1 h-px bg-gray-300" />
+                  <Link
+                    href="/about"
+                    className="mx-6 px-8 py-3 border-2 border-gray-400 text-white rounded-full font-medium hover:bg-gray-100 transition"
+                  >
+                    詳しく見る
+                  </Link>
+                  <div className="flex-1 h-px bg-gray-300" />
+                </div>
+              </div>
+            </div>
+          </section>{" "}
+          {/* <div className="relative w-screen left-1/2 transform -translate-x-1/2 -mt-px">
+            <div className="bg-white h-20 w-full" />
+            <div className="absolute inset-0 overflow-hidden">
+              <svg
+                viewBox="0 0 1200 120"
+                preserveAspectRatio="none"
+                className="w-full h-24 block"
+              >
+                <polygon points="1200,0 0,0 1200,120" fill="#1e3a8a" />
+              </svg>
+            </div>
+          </div> */}
+          <section id="service" className="py-20 bg-blue-900">
+            <div className="max-w-8xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-12 gap-8">
+              <div className="md:col-span-8 flex flex-col space-y-16">
+                <div className="text-center">
+                  <h2 className="relative inline-block text-4xl md:text-5xl font-extrabold text-white">
+                    Service
+                    <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-36 h-1 bg-blue-600 rounded" />
+                  </h2>
+                  <p className="mt-4 text-lg font-medium text-white">
+                    Empowering Your Future
+                  </p>
+                  <p className="mt-2 max-w-2xl mx-auto text-white">
+                    多彩な事業を通じて、学生のキャリアと可能性を最大化します。
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                  {serviceItems.map((item, idx) => (
                     <div
                       key={idx}
                       className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow p-8 flex flex-col items-center"
@@ -216,64 +236,8 @@ export default function AboutPage() {
                 <div className="flex items-center pt-7">
                   <div className="flex-1 h-px bg-gray-300" />
                   <Link
-                    href="/about"
-                    className="mx-6 px-8 py-3 border-2 border-gray-400 text-gray-700 rounded-full font-medium hover:bg-gray-100 transition"
-                  >
-                    詳しく見る
-                  </Link>
-                  <div className="flex-1 h-px bg-gray-300" />
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Service セクション */}
-          <section id="service" className="py-20 bg-gray-50">
-            <div className="max-w-8xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-12 gap-8">
-              <div className="md:col-span-8 flex flex-col space-y-16">
-                <div className="text-center">
-                  <h2 className="relative inline-block text-4xl md:text-5xl font-extrabold text-gray-900">
-                    Service
-                    <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-36 h-1 bg-blue-600 rounded" />
-                  </h2>
-                  <p className="mt-4 text-lg font-medium text-gray-800">
-                    Empowering Your Future
-                  </p>
-                  <p className="mt-2 max-w-2xl mx-auto text-gray-700">
-                    多彩な事業を通じて、学生のキャリアと可能性を最大化します。
-                  </p>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-                  {services.map((s) => {
-                    const Icon =
-                      s.id === "s01"
-                        ? CheckCircle
-                        : s.id === "s02"
-                        ? Calendar
-                        : Star;
-                    return (
-                      <div
-                        key={s.id}
-                        className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow p-8 flex flex-col items-center text-center"
-                      >
-                        <div className="bg-blue-100 p-4 rounded-full mb-4">
-                          <Icon className="text-blue-600" size={32} />
-                        </div>
-                        <h3 className="text-2xl font-semibold text-gray-900 mb-2">
-                          {s.title}
-                        </h3>
-                        <p className="text-gray-700 whitespace-pre-line">
-                          {s.description}
-                        </p>
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="flex items-center pt-7">
-                  <div className="flex-1 h-px bg-gray-300" />
-                  <Link
                     href="/service"
-                    className="mx-6 px-8 py-3 border-2 border-gray-400 text-gray-700 rounded-full font-medium hover:bg-gray-100 transition"
+                    className="mx-6 px-8 py-3 border-2 border-gray-400 text-white rounded-full font-medium hover:bg-gray-100 transition"
                   >
                     詳しく見る
                   </Link>
@@ -290,24 +254,11 @@ export default function AboutPage() {
               </div>
             </div>
           </section>
-
-          {/* Interview/News タブ切替セクション */}
           <NewsListSection tabs={newsTabs} defaultTabKey="interview" />
-
-          {/* 活動写真スクロール */}
           <section className="overflow-hidden p-0 m-0">
             <div className="whitespace-nowrap animate-scroll flex">
               {[...Array(2)].flatMap((_, idx) =>
-                [
-                  "/top/activity/slide01.jpg",
-                  "/top/activity/slide02.jpg",
-                  "/top/activity/slide03.jpg",
-                  "/top/activity/slide04.jpg",
-                  "/top/activity/slide05.jpg",
-                  "/top/activity/slide06.jpg",
-                  "/top/activity/slide07.jpg",
-                  "/top/activity/slide08.jpg",
-                ].map((src, i) => (
+                slideImg.map((src, i) => (
                   <div
                     key={`${idx}-${i}`}
                     className="inline-block w-64 h-80 relative shrink-0"

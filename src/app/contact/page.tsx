@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { schema } from "@/data/contact";
+import { schema, contactAbout } from "@/data/contact";
 
 type FormData = z.infer<typeof schema>;
 
@@ -61,32 +61,7 @@ export default function ContactPage() {
         </p>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-          {[
-            { label: "お名前", name: "name", placeholder: "例）山田 太郎" },
-            {
-              label: "フリガナ",
-              name: "furigana",
-              placeholder: "例）ヤマダ タロウ",
-            },
-            {
-              label: "大学名",
-              name: "university",
-              placeholder: "例）〇〇大学",
-            },
-            { label: "学部", name: "faculty", placeholder: "例）〇〇学部" },
-            {
-              label: "電話番号",
-              name: "phone",
-              placeholder: "例）0312345678",
-              type: "tel",
-            },
-            {
-              label: "メールアドレス",
-              name: "email",
-              placeholder: "例）info@example.com",
-              type: "email",
-            },
-          ].map(({ label, name, placeholder, type = "text" }) => (
+          {contactAbout.map(({ label, name, placeholder, type = "text" }) => (
             <div key={name}>
               <label className="block text-sm font-medium text-gray-700">
                 {label}
