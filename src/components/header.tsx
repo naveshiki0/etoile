@@ -21,7 +21,17 @@ export default function Header() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
 
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [isOpen]);
   useEffect(() => {
     if (pathname === "/") {
       const hasSeenIntro = sessionStorage.getItem("etoile_intro_shown");
@@ -60,7 +70,7 @@ export default function Header() {
         scrolled ? "bg-white/60 backdrop-blur-md shadow-md" : "bg-transparent"
       )}
     >
-      <div className="px-6 md:px-10 py-1 flex items-center justify-between transition-all duration-300">
+      <div className="px-6 md:px-10 py-2 flex items-center justify-between">
         <Link href="/" className="transition-all duration-300">
           <Image
             src={showWhiteLogo ? "/etoile_logo_white.svg" : "/etoile_logo.svg"}
@@ -70,7 +80,6 @@ export default function Header() {
             priority
           />
         </Link>
-
         <button
           className="md:hidden"
           onClick={() => setIsOpen(!isOpen)}
@@ -78,7 +87,7 @@ export default function Header() {
         >
           <svg
             className={clsx(
-              "w-6 h-6",
+              "w-6 h-6 transition",
               isWhiteTextPage && !scrolled ? "text-white" : "text-black"
             )}
             fill="none"
@@ -102,7 +111,6 @@ export default function Header() {
             )}
           </svg>
         </button>
-
         <nav className="hidden md:flex flex-1 justify-center space-x-6 font-medium text-lg items-center h-full">
           {["about", "service", "interview", "news"].map((path, i) => (
             <Link
@@ -121,8 +129,7 @@ export default function Header() {
             </Link>
           ))}
         </nav>
-
-        <div className="absolute right-0 top-0 h-full flex items-center space-x-4 pr-4">
+        <div className="hidden md:flex items-center space-x-4">
           <Link
             href="/about#outline"
             className={clsx(
@@ -133,12 +140,11 @@ export default function Header() {
           >
             <Building size={22} />
           </Link>
-
           <Link
             href="/contact"
             className={clsx(
-              "md:flex items-center justify-center h-full w-[80px] transition duration-300",
-              showDarkSend ? "text-gray-800" : "text-white"
+              "w-[80px] flex items-center justify-center h-full transition",
+              isDarkText ? "text-gray-800" : "text-white"
             )}
             aria-label="お問い合わせ"
           >
@@ -146,21 +152,54 @@ export default function Header() {
           </Link>
         </div>
       </div>
-
       {isOpen && (
-        <div className="md:hidden px-6 space-y-3 font-medium text-sm bg-white shadow">
+        <div className="fixed top-0 left-0 w-full h-screen z-[999] bg-blue-900 backdrop-blur-md flex flex-col items-center justify-center space-y-10 px-6 py-10 text-center animate-fade-in-down">
+          <Link
+            href="/"
+            onClick={() => setIsOpen(false)}
+            className="absolute top-6 left-6 transition-all "
+          >
+            <Image
+              src="/etoile_logo_white.svg"
+              alt="Logo"
+              width={60}
+              height={30}
+              priority
+            />
+          </Link>
+          <button
+            className="absolute top-0 right-6 text-white hover:text-blue-600 transition"
+            onClick={() => setIsOpen(false)}
+            aria-label="メニューを閉じる"
+          >
+            <svg
+              className="w-10 h-10"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
           {["about", "service", "interview", "news", "contact"].map(
             (path, i) => (
-              <Link key={i} href={`/${path}`} onClick={() => setIsOpen(false)}>
-                {path === "contact" ? (
-                  <span className="block bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition text-center">
-                    contact
-                  </span>
-                ) : (
-                  <span className="block text-gray-700 uppercase tracking-wider">
-                    {path}
-                  </span>
+              <Link
+                key={i}
+                href={`/${path}`}
+                onClick={() => setIsOpen(false)}
+                className={clsx(
+                  "uppercase tracking-widest text-2xl font-bold transition",
+                  path === "contact"
+                    ? "bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700"
+                    : "text-white  hover:text-blue-600"
                 )}
+              >
+                {path}
               </Link>
             )
           )}

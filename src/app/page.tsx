@@ -75,7 +75,7 @@ export default function AboutPage() {
         </div>
       ) : (
         <>
-          <section className="relative h-[900px] font-sans">
+          <section className="relative h-[600px] md:h-[900px] font-sans">
             <Swiper
               modules={[Autoplay, EffectFade]}
               effect="fade"
@@ -85,7 +85,7 @@ export default function AboutPage() {
             >
               {images.map((img, i) => (
                 <SwiperSlide key={i}>
-                  <div className="relative w-full h-[900px]">
+                  <div className="relative w-full h-[600px] md:h-[900px]">
                     <Image
                       src={`/top/${img}`}
                       alt={`Hero ${i + 1}`}
@@ -98,27 +98,27 @@ export default function AboutPage() {
               ))}
             </Swiper>
             <div className="absolute inset-0 bg-gray-400/20 z-10" />
-            <div className="absolute inset-0 flex items-center justify-start z-20 px-4 md:px-10">
-              <div className="w-full max-w-6xl ml-48 pl-4 space-y-6">
-                <h1 className="text-white font-extrabold flex items-baseline gap-4 leading-none">
-                  <span className="text-7xl md:text-8xl drop-shadow-lg">
+            <div className="absolute inset-0 flex items-center justify-start z-20 px-6 md:px-10">
+              <div className="w-full max-w-6xl ml-0 md:ml-48 pl-0 md:pl-4 space-y-6 text-left">
+                <h1 className="text-white font-extrabold flex flex-wrap justify-start items-baseline gap-2 sm:gap-3 md:gap-4 leading-none tracking-tight">
+                  <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl drop-shadow-lg">
                     我々
                   </span>
-                  <span className="text-4xl md:text-5xl text-white/80 font-medium">
+                  <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white/80 font-medium">
                     とともに
                   </span>
                 </h1>
-                <h2 className="text-white flex flex-wrap items-baseline gap-4 leading-tight">
-                  <span className="text-7xl md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-blue-500 animate-fade-in-once drop-shadow-sm">
+                <h2 className="text-white flex flex-wrap justify-start items-baseline gap-2 sm:gap-3 md:gap-4 leading-tight tracking-tight">
+                  <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-blue-500 animate-fade-in-once drop-shadow-sm">
                     将来
                   </span>
-                  <span className="text-4xl md:text-5xl text-white/80 font-medium">
+                  <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white/80 font-medium">
                     を
                   </span>
-                  <span className="text-7xl md:text-8xl font-extrabold drop-shadow-lg">
+                  <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold drop-shadow-lg">
                     創
                   </span>
-                  <span className="text-4xl md:text-5xl text-white/80 font-medium">
+                  <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white/80 font-medium">
                     りに行こう
                   </span>
                 </h2>
@@ -190,70 +190,59 @@ export default function AboutPage() {
               </div>
             </div>
           </section>{" "}
-          {/* <div className="relative w-screen left-1/2 transform -translate-x-1/2 -mt-px">
-            <div className="bg-white h-20 w-full" />
-            <div className="absolute inset-0 overflow-hidden">
-              <svg
-                viewBox="0 0 1200 120"
-                preserveAspectRatio="none"
-                className="w-full h-24 block"
-              >
-                <polygon points="1200,0 0,0 1200,120" fill="#1e3a8a" />
-              </svg>
-            </div>
-          </div> */}
           <section id="service" className="py-20 bg-blue-900">
-            <div className="max-w-8xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-12 gap-8">
-              <div className="md:col-span-8 flex flex-col space-y-16">
-                <div className="text-center">
-                  <h2 className="relative inline-block text-4xl md:text-5xl font-extrabold text-white">
-                    Service
-                    <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-36 h-1 bg-blue-600 rounded" />
-                  </h2>
-                  <p className="mt-4 text-lg font-medium text-white">
-                    Empowering Your Future
-                  </p>
-                  <p className="mt-2 max-w-2xl mx-auto text-white">
-                    多彩な事業を通じて、学生のキャリアと可能性を最大化します。
-                  </p>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-                  {serviceItems.map((item, idx) => (
-                    <div
-                      key={idx}
-                      className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow p-8 flex flex-col items-center"
-                    >
-                      <div className="bg-blue-100 p-4 rounded-full mb-4">
-                        <item.icon className="text-blue-600" size={32} />
+            <div className="max-w-8xl mx-auto px-6 md:px-10">
+              <div className="flex flex-col-reverse md:grid md:grid-cols-12 gap-8">
+                <div className="md:col-span-8 flex flex-col space-y-16">
+                  <div className="text-center">
+                    <h2 className="relative inline-block text-4xl md:text-5xl font-extrabold text-white">
+                      Service
+                      <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-36 h-1 bg-blue-600 rounded" />
+                    </h2>
+                    <p className="mt-4 text-lg font-medium text-white">
+                      Empowering Your Future
+                    </p>
+                    <p className="mt-2 max-w-2xl mx-auto text-white">
+                      多彩な事業を通じて、学生のキャリアと可能性を最大化します。
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                    {serviceItems.map((item, idx) => (
+                      <div
+                        key={idx}
+                        className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow p-8 flex flex-col items-center"
+                      >
+                        <div className="bg-blue-100 p-4 rounded-full mb-4">
+                          <item.icon className="text-blue-600" size={32} />
+                        </div>
+                        <h3 className="text-2xl font-semibold text-gray-900 mb-2 text-center">
+                          {item.title}
+                        </h3>
+                        <p className="text-gray-700 text-center whitespace-pre-wrap">
+                          {item.desc}
+                        </p>
                       </div>
-                      <h3 className="text-2xl font-semibold text-gray-900 mb-2 text-center">
-                        {item.title}
-                      </h3>
-                      {/* ここを修正 */}
-                      <p className="text-gray-700 text-center whitespace-pre-wrap">
-                        {item.desc}
-                      </p>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
+                  <div className="flex items-center pt-7">
+                    <div className="flex-1 h-px bg-gray-300" />
+                    <Link
+                      href="/service"
+                      className="mx-6 px-8 py-3 border-2 border-gray-400 text-white rounded-full font-medium hover:bg-gray-100 transition"
+                    >
+                      詳しく見る
+                    </Link>
+                    <div className="flex-1 h-px bg-gray-300" />
+                  </div>
                 </div>
-                <div className="flex items-center pt-7">
-                  <div className="flex-1 h-px bg-gray-300" />
-                  <Link
-                    href="/service"
-                    className="mx-6 px-8 py-3 border-2 border-gray-400 text-white rounded-full font-medium hover:bg-gray-100 transition"
-                  >
-                    詳しく見る
-                  </Link>
-                  <div className="flex-1 h-px bg-gray-300" />
+                <div className="md:col-span-4 h-64 md:h-[600px] relative overflow-hidden rounded-xl shadow-lg">
+                  <Image
+                    src="/service/mv.jpg"
+                    alt="Service Visual"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
-              </div>
-              <div className="md:col-span-4 h-64 md:h-[600px] relative overflow-hidden rounded-xl shadow-lg">
-                <Image
-                  src="/service/mv.jpg"
-                  alt="Service Visual"
-                  fill
-                  className="object-cover"
-                />
               </div>
             </div>
           </section>

@@ -15,21 +15,17 @@ import {
 export default function ServiceSection() {
   return (
     <main className="bg-gray-59 scroll-smooth">
-      <section className="relative h-[900px] overflow-hidden">
-        <div className="relative w-full h-[900px]">
+      <section className="relative h-[600px] md:h-[900px] overflow-hidden">
+        <div className="relative w-full h-full">
           <Image
             src="/service/mv.jpg"
             alt=""
             fill
             className="object-cover object-right-top brightness-90"
           />
-
           <div
-            className="absolute z-20 flex gap-16 pointer-events-none"
-            style={{
-              top: "500px",
-              right: "-200px",
-            }}
+            className="absolute z-20 hidden md:flex gap-16 pointer-events-none"
+            style={{ top: "500px", right: "-200px" }}
           >
             {[0, 1, 2].map((i) => (
               <div
@@ -44,20 +40,19 @@ export default function ServiceSection() {
             ))}
           </div>
         </div>
-
         <div className="absolute inset-0 flex items-center justify-center z-30">
           <div className="p-8 md:p-12 w-4/5 flex flex-col animate-slide-up">
-            <h1 className="pl-3 md:pl-5 text-[6rem] font-bold leading-tight text-white drop-shadow-lg whitespace-nowrap">
+            <h1 className="pl-3 md:pl-5 text-5xl md:text-[6rem] font-bold leading-tight text-white drop-shadow-lg whitespace-nowrap">
               Service
             </h1>
-            <div className="flex items-center pl-3 md:pl-5 mt-8">
+            <div className="flex items-center pl-3 md:pl-5 mt-4 md:mt-8">
               <div className="text-2xl md:text-5xl font-bold text-white drop-shadow-lg">
                 事業内容
               </div>
             </div>
           </div>
         </div>
-      </section>{" "}
+      </section>
       <section id="company" className="bg-gray-50 py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">our service</h2>
@@ -71,7 +66,7 @@ export default function ServiceSection() {
               <p className="text-sm uppercase tracking-widest text-blue-200 font-semibold mb-1 ml-5">
                 | Intern |
               </p>
-              <h3 className="text-4xl font-bold mb-4">
+              <h3 className="text-3xl md:text-4xl font-bold mb-4">
                 -ガクチカにもなる長期インターン-
               </h3>
               <p className="leading-relaxed whitespace-pre-wrap text-white/90 mb-4">
@@ -174,9 +169,9 @@ export default function ServiceSection() {
               <p className="text-sm uppercase tracking-widest text-blue-200 font-semibold mb-1 ml-5">
                 | Event |
               </p>
-              <h3 className="text-4xl font-bold mb-4">
+              <h3 className="text-3xl md:text-4xl font-bold mb-4">
                 -大学生が1から作るイベント事業-
-              </h3>
+              </h3>{" "}
               <p className="leading-relaxed whitespace-pre-wrap text-white/90 mb-4">
                 大学生サークル・学生団体などと連携し、
                 スポーツイベント・各種イベントを主催。
@@ -222,13 +217,14 @@ export default function ServiceSection() {
               </div>
             </div>
           </div>
-          <div className="rounded-xl overflow-hidden shadow-xl">
+          <div className="relative w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
             <Image
               src="/service/event.jpg"
-              alt="内定企業ロゴ"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover"
+              alt="イベント事業"
+              fill
+              className="object-cover"
+              style={{ objectPosition: "center" }}
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
         </div>
@@ -255,7 +251,9 @@ export default function ServiceSection() {
               <p className="text-sm uppercase tracking-widest font-semibold mb-1 ml-5">
                 | Support |
               </p>
-              <h3 className="text-4xl font-bold">-未来を切り拓く就活支援-</h3>
+              <h3 className="text-3xl md:text-4xl font-bold mb-4">
+                -未来を切り拓く就活支援-
+              </h3>
               <p className="leading-relaxed whitespace-pre-wrap">
                 個別相談や自己分析支援などを通じて、 学生のキャリア形成を支援。
                 <br />

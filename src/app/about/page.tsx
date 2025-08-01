@@ -24,21 +24,17 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 export default function AboutPage() {
   return (
     <main className="bg-white text-gray-900 scroll-smooth">
-      <section className="relative h-[900px] overflow-hidden">
-        <div className="relative w-full h-[900px]">
+      <section className="relative h-[600px] md:h-[900px] overflow-hidden">
+        <div className="relative w-full h-full">
           <Image
             src="/about/mv.jpg"
             alt=""
             fill
             className="object-cover object-right-top brightness-90"
           />
-
           <div
-            className="absolute z-20 flex gap-16 pointer-events-none"
-            style={{
-              top: "500px",
-              right: "-200px",
-            }}
+            className="absolute z-20 hidden md:flex gap-16 pointer-events-none"
+            style={{ top: "500px", right: "-200px" }}
           >
             {[0, 1, 2].map((i) => (
               <div
@@ -56,17 +52,17 @@ export default function AboutPage() {
 
         <div className="absolute inset-0 flex items-center justify-center z-30">
           <div className="p-8 md:p-12 w-4/5 flex flex-col animate-slide-up">
-            <h1 className="pl-3 md:pl-5 text-[6rem] font-bold leading-tight text-white drop-shadow-lg whitespace-nowrap">
+            <h1 className="pl-3 md:pl-5 text-5xl md:text-[6rem] font-bold leading-tight text-white drop-shadow-lg whitespace-nowrap">
               About
             </h1>
-            <div className="flex items-center pl-3 md:pl-5 mt-8">
+            <div className="flex items-center pl-3 md:pl-5 mt-4 md:mt-8">
               <div className="text-2xl md:text-5xl font-bold text-white drop-shadow-lg">
                 エトワールについて
               </div>
             </div>
           </div>
         </div>
-      </section>{" "}
+      </section>
       <section id="company" className="bg-gray-50 py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">our about</h2>
@@ -104,17 +100,19 @@ export default function AboutPage() {
       </section>
       <section id="mission" className="bg-blue-900 py-24 px-6">
         <div className="container mx-auto px-6 space-y-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:items-stretch items-center">
             <div className="space-y-6">
-              <div className="inline-flex items-center text-sm uppercase font-medium mb-2 text-white">
-                <span className="px-2">｜</span>
-                <span>MISSION</span>
-                <span className="px-2">｜</span>
+              <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-4">
+                <div className="inline-flex items-center text-sm uppercase font-medium text-white">
+                  <span className="px-2">｜</span>
+                  <span>MISSION</span>
+                  <span className="px-2">｜</span>
+                </div>
+                <h2 className="text-xl md:text-4xl font-bold text-white">
+                  -個の才能を磨き、周りを魅了する-
+                </h2>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
-                -個の才能を磨き、周りを魅了する-
-              </h2>
-              <p className="text-lg text-gray-100 leading-relaxed py-5">
+              <p className="text-xl text-gray-100 leading-relaxed py-5">
                 個の才能を磨き、周りを魅了する。全ての人に、可能性がある。
                 <br />
                 全ての人は、自分だけの輝きを持っており、その輝き方は一人ひとり違う。
@@ -125,7 +123,7 @@ export default function AboutPage() {
                 <br />
                 その未完成ゆえの強い輝きこそが、何よりも人の心を打ち、周りを強く惹きつける。
               </p>
-              <p className="text-lg text-gray-100 leading-relaxed">
+              <p className="text-xl text-gray-100 leading-relaxed">
                 一人の真剣な挑戦は「自分もやっていいんだ」という、
                 周りの人への勇気の証明になる。
                 <br />
@@ -174,7 +172,7 @@ export default function AboutPage() {
               <span>VISION</span>
               <span className="px-2">｜</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold">
+            <h2 className="text-xl md:text-4xl font-bold">
               -若者の挑戦を支える、才能の源泉になる-
             </h2>
           </div>
@@ -342,14 +340,48 @@ export default function AboutPage() {
             </div>
             <div className="md:w-1/2 text-lg text-gray-700 space-y-6">
               <p>
-                私たちは「carve out a new
-                future（自分の未来は自分で切り開く）」をvisionに掲げ、“夢”や”目標“に向かって歩み出すことができる本質的な力を全社員が獲得できるように事業に日々精進しております。
+                <strong className="text-lg">
+                  「どうせ無理」という言葉を、この世界からなくしたい。
+                </strong>
               </p>
               <p>
-                表面上のスキルではなく問題の根本を自ら考え、自信を持って行動に移せることはクライアントの皆様にとっても高い価値が提供できると考えております。
+                私たちがこの組織を始めた原点は、私自身が学生時代に体験した、
+                <br />
+                一つの強い「違和感」にあります。
+                <br />
+                私自身、本当の意味で成長を促してくれる企業に出会うことはできませんでした。
               </p>
               <p>
-                その為には学生目線で社会を捉えると主に、毎日の事業を通して社員の実力を高め、関わる皆様の理想的な人生の実現に向けて引き続き、全力で取り組んで参ります。
+                目にしたのは、フルコミッションで心折れる仲間や、単なる労働力としてしか見られないインターンの現実。
+                <br />
+                才能と情熱を持った学生が、挑戦を諦めてしまう環境は、あまりにも多すぎたのです。
+              </p>
+              <p>
+                だからこそ、私たちは決意しました。
+                <br />
+                全ての人は、自分だけの輝きを持つ「星」であると信じ、その可能性に真正面から向き合う組織を創り上げると。
+              </p>
+              <p>
+                私たちが目指すのは、単に営業スキルを教えるだけの会社ではありません。
+                <br />
+                志を同じくする仲間と手を取り、私たち自身が挑戦者として成長し続けることで、
+                <br />
+                若者のための「未来を切り拓くプラットフォーム」を構築することです。
+              </p>
+              <p>
+                学生時代の挑戦や努力、そして葛藤の全てが、
+                <br />
+                その人の人生を豊かにする、何物にも代えがたい輝きとなると、私たちは本気で信じています。
+              </p>
+              <p>
+                もし、あなたが今の社会のモノサシに息苦しさを感じていたり、
+                <br />
+                自分の内に眠る情熱の使い道を探しているなら、ぜひ一度、私たちのコミュニティの扉を叩いてみてください。
+              </p>
+              <p>
+                関わる全ての人々と共に、未来を切り拓いていく。
+                <br />
+                私たちの挑戦に、終わりはありません。
               </p>
               <p className="mt-6 text-right font-semibold text-blue-900">
                 代表取締役 大槻将樹
