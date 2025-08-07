@@ -24,7 +24,7 @@ export default function NewsCard({ item }: { item: NewsItem }) {
         <h3 className="text-lg font-bold text-gray-800 group-hover:underline">
           {item.title}
         </h3>
-        <p className="text-gray-600 text-sm line-clamp-3">{item.summary}</p>
+        <p className="text-gray-600 text-sm line-clamp-2">{item.content}</p>
       </div>
     </Link>
   );

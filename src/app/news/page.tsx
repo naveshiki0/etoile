@@ -16,7 +16,7 @@ export default function NewsPage() {
     const search = searchQuery.toLowerCase();
     const matchSearch =
       item.title.toLowerCase().includes(search) ||
-      item.summary.toLowerCase().includes(search);
+      item.content.toLowerCase().includes(search);
 
     return matchCategory && matchSearch;
   });

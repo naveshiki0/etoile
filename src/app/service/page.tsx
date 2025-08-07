@@ -53,13 +53,34 @@ export default function ServiceSection() {
           </div>
         </div>
       </section>
-      <section id="company" className="bg-gray-50 py-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">our service</h2>
-          <p className="text-gray-600 mb-8"></p>
-        </div>
+      <section className="relative bg-white">
+        <nav className="bg-white border-t border-gray-200 py-8 flex flex-wrap justify-center items-center gap-10 text-lg md:text-xl font-bold text-blue-900 tracking-wide">
+          <a
+            href="#Intern"
+            className="flex items-center space-x-2 hover:text-blue-700 transition-colors duration-200"
+          >
+            <span>Intern</span>
+            <span className="text-sm">▼</span>
+          </a>
+          <span className="hidden md:block w-px h-6 bg-gray-300" />
+          <a
+            href="#Event"
+            className="flex items-center space-x-2 hover:text-blue-700 transition-colors duration-200"
+          >
+            <span>Event</span>
+            <span className="text-sm">▼</span>
+          </a>
+          <span className="hidden md:block w-px h-6 bg-gray-300" />
+          <a
+            href="#Support"
+            className="flex items-center space-x-2 hover:text-blue-700 transition-colors duration-200"
+          >
+            <span>Support</span>
+            <span className="text-sm">▼</span>
+          </a>
+        </nav>
       </section>
-      <section className="py-20 bg-blue-900 px-6 text-white">
+      <section className="py-20 bg-blue-900 px-6 text-white" id="Intern">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div>
@@ -162,7 +183,7 @@ export default function ServiceSection() {
           </div>
         </div>
       </div>
-      <section className="py-20 bg-blue-900 px-6 text-white">
+      <section className="py-20 bg-blue-900 px-6 text-white" id="Event">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div>
@@ -244,7 +265,10 @@ export default function ServiceSection() {
           </div>
         </div>
       </div>
-      <section className="pt-24 pb-10 px-6  bg-blue-900 text-white">
+      <section
+        className="pt-24 pb-10 px-6  bg-blue-900 text-white"
+        id="Support"
+      >
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div className="space-y-4">

@@ -55,6 +55,7 @@ export default function AboutPage() {
             <h1 className="pl-3 md:pl-5 text-5xl md:text-[6rem] font-bold leading-tight text-white drop-shadow-lg whitespace-nowrap">
               About
             </h1>
+
             <div className="flex items-center pl-3 md:pl-5 mt-4 md:mt-8">
               <div className="text-2xl md:text-5xl font-bold text-white drop-shadow-lg">
                 エトワールについて
@@ -63,40 +64,56 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-      <section id="company" className="bg-gray-50 py-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">our about</h2>
-          <p className="text-gray-600 mb-8">
-            株式会社エトワールは、「個の才能を磨き、周りを魅了する」という
-            ビジョンのもと、学生主体のインターン事業・イベント事業・
-            就活支援事業を展開しています。
-          </p>
-          {/* ナビゲーション */}
-          {/* <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/70 border-b border-gray-200 shadow-md">
-            <div className="max-w-7xl mx-auto px-6">
-              <ul className="flex justify-center space-x-12 py-4">
-                {[
-                  { label: "ミッション", href: "#mission" },
-                  { label: "ビジョン", href: "#vision" },
-                  { label: "バリュー", href: "#value" },
-                  { label: "メンバー構成", href: "#composition" },
-                  { label: "代表挨拶", href: "#message" },
-                  { label: "会社概要", href: "#outline" },
-                ].map(({ label, href }) => (
-                  <li key={href}>
-                    <a
-                      href={href}
-                      className="group relative px-1 text-lg font-semibold text-gray-700 transition-colors duration-200 hover:text-blue-600 focus:text-blue-600"
-                    >
-                      {label}
-                      <span className="absolute left-1/2 -bottom-1 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-1/2 group-focus:w-1/2 origin-center"></span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </nav> */}
-        </div>
+      <section className="relative bg-white">
+        <nav className="bg-white border-t border-gray-200 py-8 flex flex-wrap justify-center items-center gap-10 text-lg md:text-xl font-bold text-blue-900 tracking-wide">
+          <a
+            href="#mission"
+            className="flex items-center space-x-2 hover:text-blue-700 transition-colors duration-200"
+          >
+            <span>Mission</span>
+            <span className="text-sm">▼</span>
+          </a>
+          <span className="hidden md:block w-px h-6 bg-gray-300" />
+          <a
+            href="#vision"
+            className="flex items-center space-x-2 hover:text-blue-700 transition-colors duration-200"
+          >
+            <span>Vision</span>
+            <span className="text-sm">▼</span>
+          </a>
+          <span className="hidden md:block w-px h-6 bg-gray-300" />
+          <a
+            href="#values"
+            className="flex items-center space-x-2 hover:text-blue-700 transition-colors duration-200"
+          >
+            <span>Values</span>
+            <span className="text-sm">▼</span>
+          </a>
+          <span className="hidden md:block w-px h-6 bg-gray-300" />
+          <a
+            href="#composition"
+            className="flex items-center space-x-2 hover:text-blue-700 transition-colors duration-200"
+          >
+            <span>Composition</span>
+            <span className="text-sm">▼</span>
+          </a>
+          <span className="hidden md:block w-px h-6 bg-gray-300" />
+          <a
+            href="#message"
+            className="flex items-center space-x-2 hover:text-blue-700 transition-colors duration-200"
+          >
+            <span>Message</span>
+            <span className="text-sm">▼</span>
+          </a>
+          <span className="hidden md:block w-px h-6 bg-gray-300" />
+          <a
+            href="#outline"
+            className="flex items-center space-x-2 hover:text-blue-700 transition-colors duration-200"
+          >
+            <span>Outline</span>
+            <span className="text-sm">▼</span>
+          </a>
+        </nav>
       </section>
       <section id="mission" className="bg-blue-900 py-24 px-6">
         <div className="container mx-auto px-6 space-y-12">
@@ -225,7 +242,7 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
-      <section className="bg-blue-900 text-white py-16">
+      <section className="bg-blue-900 text-white py-16" id="values">
         <div className="container mx-auto px-6 space-y-12">
           <div className="text-center md:text-left">
             <div className="inline-flex items-center text-sm uppercase font-medium mb-2">
@@ -322,7 +339,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-      <section id="message" className="scroll-mt-24 py-28 bg-[#F8FAFC]">
+      <section id="message" className="scroll-mt-24 py-20 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14">
             <h2 className="text-5xl font-extrabold text-blue-900">代表挨拶</h2>
@@ -383,7 +400,7 @@ export default function AboutPage() {
                 <br />
                 私たちの挑戦に、終わりはありません。
               </p>
-              <p className="mt-6 text-right font-semibold text-blue-900">
+              <p className="mt-6 text-right text-xl font-bold text-blue-900 underline underline-offset-4 decoration-2 decoration-blue-800">
                 代表取締役 大槻将樹
               </p>
             </div>

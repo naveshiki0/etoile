@@ -4,6 +4,5 @@ export type NewsItem = {
   date: string;
   category: string;
   thumbnail: string;
-  summary: string;
   content: string;
 };
