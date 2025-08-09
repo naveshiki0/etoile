@@ -1,8 +1,8 @@
 export const data = [
-  { name: "Jan", value: 50 },
-  { name: "Feb", value: 80 },
-  { name: "Mar", value: 120 },
-  { name: "Apr", value: 200 },
+  { name: "", value: 40 },
+  { name: "", value: 100 },
+  { name: "", value: 150 },
+  { name: "", value: 260 },
 ];
 export const companies = [
   "楽天グループ株式会社",

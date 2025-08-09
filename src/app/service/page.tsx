@@ -3,8 +3,9 @@ import Image from "next/image";
 import { data, companies } from "@/data/service";
 import { Star, Users, CheckCircle, BriefcaseBusiness } from "lucide-react";
 import {
-  LineChart,
-  Line,
+  BarChart,
+  Bar,
+  LabelList,
   CartesianGrid,
   XAxis,
   YAxis,
@@ -279,9 +280,11 @@ export default function ServiceSection() {
                 -未来を切り拓く就活支援-
               </h3>
               <p className="leading-relaxed whitespace-pre-wrap">
-                個別相談や自己分析支援などを通じて、 学生のキャリア形成を支援。
+                就活は終わりではなく、社会の始まり。
                 <br />
-                信頼と実績の支援体制を整えています。
+                自己分析や個別面談を通しキャリアマップを作成します。
+                <br />
+                身につけた力を最大限活かし、理想の進路へ進めましょう。
               </p>
             </div>
             <div className="grid gap-4">
@@ -293,54 +296,58 @@ export default function ServiceSection() {
                   </h4>
                 </div>
                 <p className="text-sm text-gray-800">
-                  基本を徹底的に磨くことで、自分だけの強みを発見。
+                  まずは自分を振り返り知り尽くすことから始めます。{" "}
                 </p>
               </div>
               <div className="bg-blue-50 border border-blue-100 rounded-xl shadow-md p-5">
                 <div className="flex items-center gap-3 mb-2">
                   <Users className="text-blue-600 w-4 h-4" />
                   <h4 className="text-base font-semibold text-blue-900">
-                    キャリアコーチによる個別支援
+                    キャリアアドバイザーによる個別支援{" "}
                   </h4>
                 </div>
                 <p className="text-sm text-gray-800">
-                  あなたに合ったアドバイスで志望企業対策も万全。
+                  自己分析をもとにあなたの専属のキャリアアドバイザーが就活を支援します{" "}
                 </p>
               </div>
               <div className="bg-blue-50 border border-blue-100 rounded-xl shadow-md p-5">
                 <div className="flex items-center gap-3 mb-2">
                   <CheckCircle className="text-blue-600 w-4 h-4" />
                   <h4 className="text-base font-semibold text-blue-900">
-                    大手・ベンチャー問わず内定実績
+                    内定実績{" "}
                   </h4>
                 </div>
                 <p className="text-sm text-gray-800">
-                  安心の支援実績と業界ネットワーク。
+                  大手・ベンチャーに限らず多くの学生が、目指す企業からの内定を得ています{" "}
                 </p>
               </div>
             </div>
           </div>
-          <div className="w-full h-[500px]">
+          <div className="w-full h-[500px] flex flex-col items-center">
+            <div className="text-center text-xl md:text-2xl font-extrabold uppercase mb-4">
+              支援学生
+            </div>
             <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={data}>
-                <Line
-                  type="monotone"
-                  dataKey="value"
-                  stroke="#fff"
-                  strokeWidth={4}
-                />
+              <BarChart data={data}>
                 <CartesianGrid
                   stroke="rgba(255,255,255,0.3)"
                   strokeDasharray="5 5"
                 />
                 <XAxis dataKey="name" stroke="rgba(255,255,255,0.8)" />
-                <YAxis stroke="rgba(255,255,255,0.8)" />
+                <YAxis stroke="rgba(255,255,255,0.8)" domain={[0, 300]} />
                 <Tooltip
                   contentStyle={{ backgroundColor: "#1e3a8a", border: "none" }}
                   labelStyle={{ color: "#fff" }}
                   itemStyle={{ color: "#fff" }}
                 />
-              </LineChart>
+                <Bar dataKey="value" fill="#ffffff">
+                  <LabelList
+                    dataKey="value"
+                    position="top"
+                    style={{ fill: "#fff", fontSize: 14, fontWeight: "bold" }}
+                  />
+                </Bar>
+              </BarChart>
             </ResponsiveContainer>
           </div>
         </div>
