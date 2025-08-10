@@ -157,11 +157,11 @@ export default function AboutPage() {
                     実践型インターン・学生主体イベント・就活支援で主体的成長を後押しします。
                   </p>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-12">
                   {aboutItems.map((item, idx) => (
                     <div
                       key={idx}
-                      className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow p-8 flex flex-col items-center"
+                      className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow py-8 px-4 flex flex-col items-center"
                     >
                       <div className="bg-blue-100 p-4 rounded-full mb-4">
                         <item.icon className="text-blue-600" size={32} />
@@ -169,7 +169,7 @@ export default function AboutPage() {
                       <h3 className="text-2xl font-semibold text-gray-900 mb-2 text-center">
                         {item.title}
                       </h3>
-                      <p className="text-lg text-gray-900 text-center">
+                      <p className="lg:text-sm text-lg text-gray-900 text-center">
                         <br />
                         {item.desc} <br />
                         &nbsp;
@@ -206,11 +206,11 @@ export default function AboutPage() {
                       多彩な事業を通じて、学生のキャリアと可能性を最大化します。
                     </p>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-12">
                     {serviceItems.map((item, idx) => (
                       <div
                         key={idx}
-                        className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow p-8 flex flex-col items-center"
+                        className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow py-8 px-4 flex flex-col items-center"
                       >
                         <div className="bg-blue-100 p-4 rounded-full mb-4">
                           <item.icon className="text-blue-600" size={32} />
@@ -218,7 +218,7 @@ export default function AboutPage() {
                         <h3 className="text-2xl font-semibold text-gray-900 mb-2 text-center">
                           {item.title}
                         </h3>
-                        <p className="text-gray-700 text-center whitespace-pre-wrap">
+                        <p className="lg:text-sm text-gray-700 text-center whitespace-pre-wrap">
                           {item.desc}
                         </p>
                       </div>
@@ -240,7 +240,7 @@ export default function AboutPage() {
                     src="/service/mv.jpg"
                     alt="Service Visual"
                     fill
-                    className="object-cover"
+                    className="object-cover object-top"
                   />
                 </div>
               </div>
@@ -259,7 +259,7 @@ export default function AboutPage() {
                       src={src}
                       alt={`活動写真 ${i + 1}`}
                       fill
-                      className="object-cover shadow"
+                      className="object-cover object-top"
                     />
                   </div>
                 ))

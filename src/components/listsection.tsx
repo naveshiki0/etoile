@@ -114,7 +114,7 @@ export default function NewsListSection({
                   src={imageUrl}
                   alt={title}
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               </div>
               <div className="p-4">
