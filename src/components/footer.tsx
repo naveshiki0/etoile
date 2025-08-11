@@ -14,11 +14,11 @@ export default function Footer() {
             <div className="text-3xl text-blue-800 font-black mb-6">
               Contact
             </div>
-            <h2 className="text-xl md:text-3xl font-black text-gray-900 mb-6">
+            <h2 className="text-lg md:text-3xl font-black text-gray-900 mb-6">
               ご相談・ご応募はこちらから
             </h2>
-            <p className="text-xl md:text-3xl font-semibold text-gray-800 mb-8 ">
-              エトワールに関心のある方はお気軽にご連絡ください。
+            <p className="text-lg md:text-3xl font-semibold text-gray-800 mb-8 ">
+              エトワールに関心のある方は、お気軽にご連絡ください。
             </p>
             <Link
               href="/contact"
