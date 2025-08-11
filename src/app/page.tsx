@@ -59,7 +59,7 @@ export default function AboutPage() {
     <main className="bg-gray-200">
       {showIntro ? (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-white text-blue-900 overflow-hidden">
-          <div className="absolute w-[220px] h-[220px] sm:w-[300px] sm:h-[300px] animate-custom-ping border-2 border-blue-300 rounded-full opacity-30" />
+          <div className="absolute w-[300px] h-[300px] sm:w-[300px] sm:h-[300px] animate-custom-ping border-2 border-blue-300 rounded-full opacity-30" />
           <div
             className="absolute inset-0 bg-[radial-gradient(circle,_#ccc_1px,_transparent_1px)]"
             style={{ backgroundSize: "18px 18px" }}
@@ -69,8 +69,8 @@ export default function AboutPage() {
               src="/etoile_logo.svg"
               alt="ETOILE Logo"
               width={160}
-              height={62}
-              className="mx-auto drop-shadow-xl sm:w-[180px] sm:h-[70px]"
+              height={160}
+              className="mx-auto drop-shadow-xl sm:w-[180px] sm:h-[180px]"
             />
             <p className="mt-4 text-blue-500 text-xs sm:text-sm font-mono tracking-widest animate-flicker">
               我々とともに将来を創りに行こう
