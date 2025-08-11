@@ -52,26 +52,29 @@ export default function AboutPage() {
 
         <div className="absolute inset-0 flex items-center justify-center z-30">
           <div className="p-8 md:p-12 w-4/5 flex flex-col animate-slide-up">
-            <h1 className="pl-3 md:pl-5 text-5xl md:text-[6rem] font-bold leading-tight text-white drop-shadow-lg whitespace-nowrap">
+            {/* About 見出し */}
+            <h1 className="pl-3 md:pl-5 text-4xl sm:text-5xl md:text-[6rem] font-bold leading-tight text-white drop-shadow-lg whitespace-nowrap">
               About
             </h1>
 
             <div className="flex items-center pl-3 md:pl-5 mt-4 md:mt-8">
-              <div className="text-2xl md:text-5xl font-bold text-white drop-shadow-lg">
+              <div className="text-lg sm:text-2xl md:text-5xl font-bold text-white drop-shadow-lg">
                 エトワールについて
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* ナビ（文字サイズのみ調整） */}
       <section className="relative bg-white">
-        <nav className="bg-white border-t border-gray-200 py-8 flex flex-wrap justify-center items-center gap-10 text-lg md:text-xl font-bold text-blue-900 tracking-wide">
+        <nav className="bg-white border-t border-gray-200 py-8 flex flex-wrap justify-center items-center gap-10 text-sm sm:text-base md:text-xl font-bold text-blue-900 tracking-wide">
           <a
             href="#mission"
             className="flex items-center space-x-2 hover:text-blue-700 transition-colors duration-200"
           >
             <span>Mission</span>
-            <span className="text-sm">▼</span>
+            <span className="text-[10px] sm:text-sm">▼</span>
           </a>
           <span className="hidden md:block w-px h-6 bg-gray-300" />
           <a
@@ -79,7 +82,7 @@ export default function AboutPage() {
             className="flex items-center space-x-2 hover:text-blue-700 transition-colors duration-200"
           >
             <span>Vision</span>
-            <span className="text-sm">▼</span>
+            <span className="text-[10px] sm:text-sm">▼</span>
           </a>
           <span className="hidden md:block w-px h-6 bg-gray-300" />
           <a
@@ -87,7 +90,7 @@ export default function AboutPage() {
             className="flex items-center space-x-2 hover:text-blue-700 transition-colors duration-200"
           >
             <span>Values</span>
-            <span className="text-sm">▼</span>
+            <span className="text-[10px] sm:text-sm">▼</span>
           </a>
           <span className="hidden md:block w-px h-6 bg-gray-300" />
           <a
@@ -95,7 +98,7 @@ export default function AboutPage() {
             className="flex items-center space-x-2 hover:text-blue-700 transition-colors duration-200"
           >
             <span>Composition</span>
-            <span className="text-sm">▼</span>
+            <span className="text-[10px] sm:text-sm">▼</span>
           </a>
           <span className="hidden md:block w-px h-6 bg-gray-300" />
           <a
@@ -103,7 +106,7 @@ export default function AboutPage() {
             className="flex items-center space-x-2 hover:text-blue-700 transition-colors duration-200"
           >
             <span>Message</span>
-            <span className="text-sm">▼</span>
+            <span className="text-[10px] sm:text-sm">▼</span>
           </a>
           <span className="hidden md:block w-px h-6 bg-gray-300" />
           <a
@@ -111,25 +114,28 @@ export default function AboutPage() {
             className="flex items-center space-x-2 hover:text-blue-700 transition-colors duration-200"
           >
             <span>Outline</span>
-            <span className="text-sm">▼</span>
+            <span className="text-[10px] sm:text-sm">▼</span>
           </a>
         </nav>
       </section>
+
+      {/* MISSION */}
       <section id="mission" className="bg-blue-900 py-24 px-6">
         <div className="container mx-auto px-6 space-y-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:items-stretch items-center">
             <div className="space-y-6">
               <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-4">
-                <div className="inline-flex items-center text-sm uppercase font-medium text-white">
+                <div className="inline-flex items-center text-xs sm:text-sm uppercase font-medium text-white">
                   <span className="px-2">｜</span>
                   <span>MISSION</span>
                   <span className="px-2">｜</span>
                 </div>
-                <h2 className="text-xl md:text-4xl font-bold text-white">
+                <h2 className="text-lg sm:text-2xl md:text-4xl font-bold text-white">
                   -個の才能を磨き、周りを魅了する-
                 </h2>
               </div>
-              <p className="text-xl text-gray-100 leading-relaxed py-5">
+
+              <p className="text-base sm:text-lg md:text-xl text-gray-100 leading-relaxed py-5">
                 個の才能を磨き、周りを魅了する。全ての人に、可能性がある。
                 <br />
                 全ての人は、自分だけの輝きを持っており、その輝き方は一人ひとり違う。
@@ -140,7 +146,8 @@ export default function AboutPage() {
                 <br />
                 その未完成ゆえの強い輝きこそが、何よりも人の心を打ち、周りを強く惹きつける。
               </p>
-              <p className="text-xl text-gray-100 leading-relaxed">
+
+              <p className="text-base sm:text-lg md:text-xl text-gray-100 leading-relaxed">
                 一人の真剣な挑戦は「自分もやっていいんだ」という、
                 周りの人への勇気の証明になる。
                 <br />
@@ -165,7 +172,8 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </section>{" "}
+      </section>
+
       <div className="bg-blue-900 py-8">
         <div className="max-w-full mx-auto px-6">
           <div className="flex items-center justify-center space-x-4">
@@ -181,18 +189,21 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
+
+      {/* VISION */}
       <section id="vision" className="bg-blue-900 py-24 px-6">
         <div className="container mx-auto px-6 space-y-12">
           <div className="text-white text-center md:text-left">
-            <div className="inline-flex items-center text-sm uppercase font-medium mb-2">
+            <div className="inline-flex items-center text-xs sm:text-sm uppercase font-medium mb-2">
               <span className="px-2">｜</span>
               <span>VISION</span>
               <span className="px-2">｜</span>
             </div>
-            <h2 className="text-xl md:text-4xl font-bold">
+            <h2 className="text-lg sm:text-2xl md:text-4xl font-bold">
               -若者の挑戦を支える、才能の源泉になる-
             </h2>
           </div>
+
           <div className="overflow-hidden rounded-xl shadow-lg">
             <Image
               src="/about/vision.jpg"
@@ -202,7 +213,8 @@ export default function AboutPage() {
               className="w-full h-80 object-cover"
             />
           </div>
-          <div className="space-y-6 text-white leading-relaxed text-xl mx-auto">
+
+          <div className="space-y-6 text-white leading-relaxed text-base sm:text-lg md:text-xl mx-auto">
             <p>
               誰もが心に火種をもっている。 「何かを成し遂げたい」という衝動
               「もっと知りたい」という好奇心 「自分を変えたい」という願い
@@ -227,6 +239,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
       <div className="bg-blue-900 py-8">
         <div className="max-w-full mx-auto px-6">
           <div className="flex items-center justify-center space-x-4">
@@ -242,18 +255,21 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
+
+      {/* VALUES */}
       <section className="bg-blue-900 text-white py-16" id="values">
         <div className="container mx-auto px-6 space-y-12">
           <div className="text-center md:text-left">
-            <div className="inline-flex items-center text-sm uppercase font-medium mb-2">
+            <div className="inline-flex items-center text-xs sm:text-sm uppercase font-medium mb-2">
               <span className="px-2">｜</span>
               <span>VALUES</span>
               <span className="px-2">｜</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold pt-5">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold pt-5">
               -私たちの価値観・行動指針-
             </h2>
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-12 gap-16 items-stretch">
             <div className="md:col-span-7 h-full">
               <Image
@@ -273,7 +289,9 @@ export default function AboutPage() {
                       <Icon className="w-8 h-12 text-white" />
                     </div>
                     <div>
-                      <h4 className="text-xl font-semibold">{title}</h4>
+                      <h4 className="text-base sm:text-lg md:text-xl font-semibold">
+                        {title}
+                      </h4>
                       <p className="text-sm mt-2 text-white/90">{body}</p>
                     </div>
                   </div>
@@ -283,6 +301,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* 仕切り */}
       <div className="relative -mt-px">
         <div className="bg-white h-20"></div>
         <div
@@ -298,13 +318,17 @@ export default function AboutPage() {
           </svg>
         </div>
       </div>
+
+      {/* COMPOSITION */}
       <section id="composition" className="py-24 bg-[#F8FAFC] scroll-mt-24 ">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-extrabold text-gray-900 mb-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">
               メンバー構成
             </h2>
-            <p className="text-gray-500 text-lg">Composition</p>
+            <p className="text-gray-500 text-sm sm:text-base md:text-lg">
+              Composition
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-16 max-w-4xl mx-auto">
@@ -315,18 +339,19 @@ export default function AboutPage() {
               { title: "学部", data: dataFaculty },
             ].map(({ title, data }) => (
               <div key={title} className="text-center">
-                <h3 className="text-2xl font-semibold text-gray-800 mb-6">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800 mb-6">
                   {title}
                 </h3>
                 <Pie data={data} options={options} />
               </div>
             ))}
           </div>
+
           <div className="mt-20 max-w-6xl mx-auto">
-            <h3 className="text-3xl font-semibold text-gray-800 mb-8 text-center">
+            <h3 className="text-2xl sm:text-3xl font-semibold text-gray-800 mb-8 text-center">
               出身大学
             </h3>
-            <div className="flex flex-wrap justify-center gap-4 text-gray-700 text-lg tracking-wide leading-relaxed">
+            <div className="flex flex-wrap justify-center gap-4 text-gray-700 text-sm sm:text-base md:text-lg tracking-wide leading-relaxed">
               {universityInfo.map((uni) => (
                 <span
                   key={uni}
@@ -339,12 +364,19 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* MESSAGE */}
       <section id="message" className="scroll-mt-24 py-20 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14">
-            <h2 className="text-5xl font-extrabold text-blue-900">代表挨拶</h2>
-            <p className="text-gray-500 text-lg">Message</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-blue-900">
+              代表挨拶
+            </h2>
+            <p className="text-gray-500 text-sm sm:text-base md:text-lg">
+              Message
+            </p>
           </div>
+
           <div className="md:flex items-start gap-12 animate-fade-in">
             <div className="md:w-1/2 mb-8 md:mb-0">
               <Image
@@ -355,9 +387,10 @@ export default function AboutPage() {
                 className="rounded-3xl shadow-xl"
               />
             </div>
-            <div className="md:w-1/2 text-lg text-gray-700 space-y-6">
+
+            <div className="md:w-1/2 text-base sm:text-lg text-gray-700 space-y-6">
               <p>
-                <strong className="text-lg">
+                <strong className="text-base sm:text-lg">
                   「どうせ無理」という言葉を、この世界からなくしたい。
                 </strong>
               </p>
@@ -400,28 +433,37 @@ export default function AboutPage() {
                 <br />
                 私たちの挑戦に、終わりはありません。
               </p>
-              <p className="mt-6 text-right text-xl font-bold text-blue-900 underline underline-offset-4 decoration-2 decoration-blue-800">
+              <p className="mt-6 text-right text-base sm:text-lg md:text-xl font-bold text-blue-900 underline underline-offset-4 decoration-2 decoration-blue-800">
                 代表取締役 大槻将樹
               </p>
             </div>
           </div>
         </div>
       </section>
+
+      {/* OUTLINE */}
       <section id="outline" className="scroll-mt-24 py-28 bg-blue-900">
         <div className="max-w-3xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-5xl font-extrabold text-white">会社概要</h2>
-            <p className="text-white/80 text-lg">Outline</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white">
+              会社概要
+            </h2>
+            <p className="text-white/80 text-sm sm:text-base md:text-lg">
+              Outline
+            </p>
           </div>
-          <div className=" rounded-2xl shadow-lg overflow-hidden">
+
+          <div className="rounded-2xl shadow-lg overflow-hidden">
             <dl className="divide-y divide-gray-200">
               {companyInfo.map(({ label, value }, i) => (
                 <div
                   key={i}
                   className="grid grid-cols-1 md:grid-cols-3 gap-4 px-6 py-4"
                 >
-                  <dt className="text-sm uppercase text-white">{label}</dt>
-                  <dd className="mt-1 md:mt-0 md:col-span-2 text-white font-medium">
+                  <dt className="text-xs sm:text-sm uppercase text-white">
+                    {label}
+                  </dt>
+                  <dd className="mt-1 md:mt-0 md:col-span-2 text-sm sm:text-base md:text-lg text-white font-medium">
                     {value}
                   </dd>
                 </div>
