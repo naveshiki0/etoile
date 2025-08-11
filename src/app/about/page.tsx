@@ -367,7 +367,7 @@ export default function AboutPage() {
 
       {/* MESSAGE */}
       <section id="message" className="scroll-mt-24 py-20 bg-[#F8FAFC]">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-screen-2xl mx-auto px-6">
           <div className="text-center mb-14">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-blue-900">
               代表挨拶
@@ -388,15 +388,14 @@ export default function AboutPage() {
               />
             </div>
 
-            <div className="md:w-1/2 text-base sm:text-lg text-gray-700 space-y-6">
+            <div className="md:w-3/5 lg:w-2/3 text-base sm:text-lg text-gray-700 space-y-6">
               <p>
-                <strong className="text-base sm:text-base">
+                <strong className="text-base sm:text-sm">
                   「どうせ無理」という言葉を、この世界からなくしたい。
                 </strong>
               </p>
               <p>
                 私たちがこの組織を始めた原点は、私自身が学生時代に体験した、
-                <br />
                 一つの強い「違和感」にあります。
                 <br />
                 私自身、本当の意味で成長を促してくれる企業に出会うことはできませんでした。
@@ -415,7 +414,6 @@ export default function AboutPage() {
                 私たちが目指すのは、単に営業スキルを教えるだけの会社ではありません。
                 <br />
                 志を同じくする仲間と手を取り、私たち自身が挑戦者として成長し続けることで、
-                <br />
                 若者のための「未来を切り拓くプラットフォーム」を構築することです。
               </p>
               <p>
@@ -425,7 +423,6 @@ export default function AboutPage() {
               </p>
               <p>
                 もし、あなたが今の社会のモノサシに息苦しさを感じていたり、
-                <br />
                 自分の内に眠る情熱の使い道を探しているなら、ぜひ一度、私たちのコミュニティの扉を叩いてみてください。
               </p>
               <p>
