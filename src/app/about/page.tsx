@@ -52,7 +52,6 @@ export default function AboutPage() {
 
         <div className="absolute inset-0 flex items-center justify-center z-30">
           <div className="p-8 md:p-12 w-4/5 flex flex-col animate-slide-up">
-            {/* About 見出し */}
             <h1 className="pl-3 md:pl-5 text-4xl sm:text-5xl md:text-[6rem] font-bold leading-tight text-white drop-shadow-lg whitespace-nowrap">
               About
             </h1>
@@ -66,7 +65,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ナビ（文字サイズのみ調整） */}
       <section className="relative bg-white">
         <nav className="bg-white border-t border-gray-200 py-8 flex flex-wrap justify-center items-center gap-10 text-sm sm:text-base md:text-xl font-bold text-blue-900 tracking-wide">
           <a
@@ -119,7 +117,6 @@ export default function AboutPage() {
         </nav>
       </section>
 
-      {/* MISSION */}
       <section id="mission" className="bg-blue-900 py-24 px-6">
         <div className="container mx-auto px-6 space-y-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:items-stretch items-center">
@@ -190,7 +187,6 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* VISION */}
       <section id="vision" className="bg-blue-900 py-24 px-6">
         <div className="container mx-auto px-6 space-y-12">
           <div className="text-white text-center md:text-left">
@@ -256,7 +252,6 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* VALUES */}
       <section className="bg-blue-900 text-white py-16" id="values">
         <div className="container mx-auto px-6 space-y-12">
           <div className="text-center md:text-left">
@@ -302,7 +297,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 仕切り */}
       <div className="relative -mt-px">
         <div className="bg-white h-20"></div>
         <div
@@ -319,7 +313,6 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* COMPOSITION */}
       <section id="composition" className="py-24 bg-[#F8FAFC] scroll-mt-24 ">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -365,7 +358,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* MESSAGE */}
       <section id="message" className="scroll-mt-24 py-20 bg-[#F8FAFC]">
         <div className="max-w-screen-2xl mx-auto px-6">
           <div className="text-center mb-14">
@@ -438,7 +430,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* OUTLINE */}
       <section id="outline" className="scroll-mt-24 py-28 bg-blue-900">
         <div className="max-w-3xl mx-auto px-6">
           <div className="text-center mb-12">

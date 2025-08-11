@@ -9,10 +9,9 @@ export async function POST(req: Request) {
 
     const { name, furigana, phone, email, about, message } = body;
 
-    // 送信
     const data = await resend.emails.send({
-      from: "onboarding@resend.dev", // 本番では認証済みドメインに変更
-      to: "kounanataiti@icloud.com", // 受信先
+      from: "onboarding@resend.dev",
+      to: "kounanataiti@icloud.com",
       subject: `お問い合わせ: ${about || "無題"}`,
       html: `
         <h2>お問い合わせ内容</h2>

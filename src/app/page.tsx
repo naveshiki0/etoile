@@ -79,7 +79,6 @@ export default function AboutPage() {
         </div>
       ) : (
         <>
-          {/* ========== HERO ========== */}
           <section className="relative h-[600px] md:h-[900px] font-sans">
             <Swiper
               modules={[Autoplay, EffectFade]}
@@ -105,7 +104,6 @@ export default function AboutPage() {
 
             <div className="absolute inset-0 bg-gray-400/20 z-10" />
 
-            {/* Hero Text */}
             <div className="absolute inset-0 flex items-center justify-start z-20 px-4 sm:px-6 md:px-10 pt-[env(safe-area-inset-top)]">
               <div className="w-full max-w-6xl ml-0 md:ml-48 pl-0 md:pl-4 space-y-3 sm:space-y-6 text-left">
                 <h1 className="text-white font-extrabold flex flex-wrap justify-start items-baseline gap-2 sm:gap-3 md:gap-4 leading-none tracking-tight">
@@ -133,7 +131,6 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Tagline */}
             <div className="absolute bottom-6 sm:bottom-10 w-full z-30 flex items-center justify-center px-4 sm:px-6 pointer-events-none">
               <div className="flex items-center w-full max-w-5xl">
                 <div className="hidden sm:block flex-1 border-t border-white/30" />
@@ -145,7 +142,6 @@ export default function AboutPage() {
             </div>
           </section>
 
-          {/* ========== ABOUT ========== */}
           <section id="about" className="py-14 sm:py-20 bg-blue-900">
             <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-10 grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8">
               <div className="md:col-span-4 h-48 sm:h-64 md:h-[600px] relative overflow-hidden rounded-xl shadow-lg">
@@ -204,7 +200,6 @@ export default function AboutPage() {
             </div>
           </section>
 
-          {/* ========== SERVICE ========== */}
           <section id="service" className="py-14 sm:py-20 bg-blue-900">
             <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-10">
               <div className="flex flex-col-reverse md:grid md:grid-cols-12 gap-6 sm:gap-8">
@@ -265,10 +260,8 @@ export default function AboutPage() {
             </div>
           </section>
 
-          {/* ========== NEWS / INTERVIEW ========== */}
           <NewsListSection tabs={newsTabs} defaultTabKey="interview" />
 
-          {/* ========== ACTIVITY SLIDER ========== */}
           <section className="overflow-hidden p-0 m-0">
             <div className="whitespace-nowrap animate-scroll flex">
               {[...Array(2)].flatMap((_, idx) =>
