@@ -80,7 +80,7 @@ export default function AboutPage() {
       ) : (
         <>
           {/* ========== HERO ========== */}
-          <section className="relative h-[60vh] md:h-[85vh] font-sans">
+          <section className="relative h-[600px] md:h-[900px] font-sans">
             <Swiper
               modules={[Autoplay, EffectFade]}
               effect="fade"
@@ -90,7 +90,7 @@ export default function AboutPage() {
             >
               {images.map((img, i) => (
                 <SwiperSlide key={i}>
-                  <div className="relative w-full h-[60vh] md:h-[85vh]">
+                  <div className="relative w-full h-[600px] md:h-[900px]">
                     <Image
                       src={`/top/${img}`}
                       alt={`Hero ${i + 1}`}
@@ -175,7 +175,7 @@ export default function AboutPage() {
                   {aboutItems.map((item, idx) => (
                     <div
                       key={idx}
-                      className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow py-6 sm:py-8 px-4 sm:px-6 flex flex-col items-center"
+                      className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow py-6 sm:py-14 px-4 sm:px-6 flex flex-col items-center"
                     >
                       <div className="bg-blue-100 p-3 sm:p-4 rounded-full mb-3 sm:mb-4">
                         <item.icon className="text-blue-600" size={28} />
