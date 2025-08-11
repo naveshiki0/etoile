@@ -390,7 +390,7 @@ export default function AboutPage() {
 
             <div className="md:w-3/5 lg:w-2/3 text-base sm:text-lg text-gray-700 space-y-6">
               <p>
-                <strong className="text-base sm:text-sm">
+                <strong className="text-base sm:text-lg md:text-xl">
                   「どうせ無理」という言葉を、この世界からなくしたい。
                 </strong>
               </p>
