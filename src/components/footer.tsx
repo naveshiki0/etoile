@@ -17,8 +17,8 @@ export default function Footer() {
             <h2 className="text-xl md:text-3xl font-black text-gray-900 mb-6">
               ご相談・ご応募はこちらから
             </h2>
-            <p className="text-xl md:text-3xl font-semibold text-gray-800 mb-8 whitespace-nowrap">
-              エトワールに関心のある方は、ぜひお気軽にご連絡ください。
+            <p className="text-xl md:text-3xl font-semibold text-gray-800 mb-8 ">
+              エトワールに関心のある方はお気軽にご連絡ください。
             </p>
             <Link
               href="/contact"
