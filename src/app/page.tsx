@@ -131,10 +131,21 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="absolute bottom-6 sm:bottom-10 w-full z-30 flex items-center justify-center px-4 sm:px-6 pointer-events-none">
-              <div className="flex items-center w-full max-w-5xl">
+            <div
+              className="
+    absolute
+    bottom-6 sm:bottom-10
+    w-full
+    z-30
+    flex
+    justify-center
+    px-4 sm:px-6
+    pointer-events-none
+  "
+            >
+              <div className="flex items-center w-full max-w-5xl justify-center sm:justify-between">
                 <div className="hidden sm:block flex-1 border-t border-white/30" />
-                <span className="px-4 sm:px-6 text-xs sm:text-sm md:text-xl text-white/80 tracking-wider font-medium whitespace-nowrap">
+                <span className="px-4 sm:px-6 text-xs sm:text-sm md:text-xl text-white/80 tracking-wider font-medium whitespace-nowrap text-center">
                   Let’s build our future together.
                 </span>
                 <div className="hidden sm:block flex-1 border-t border-white/30" />
