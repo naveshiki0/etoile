@@ -102,7 +102,7 @@ export default function AboutPage() {
               ))}
             </Swiper>
 
-            <div className="absolute inset-0 bg-gray-400/20 z-10" />
+            {/* <div className="absolute inset-0 bg-gray-400/20 z-10" /> */}
 
             <div className="absolute inset-0 flex items-center justify-start z-20 px-4 sm:px-6 md:px-10 pt-[env(safe-area-inset-top)]">
               <div className="w-full max-w-6xl ml-0 md:ml-48 pl-0 md:pl-4 space-y-3 sm:space-y-6 text-left">

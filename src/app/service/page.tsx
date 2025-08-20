@@ -139,33 +139,36 @@ export default function ServiceSection() {
               </div>
             </div>
           </div>
-          <div className="space-y-10">
+          <div className="space-y-6 sm:space-y-8">
             <div className="text-center">
-              <h2 className="text-3xl font-extrabold mb-4 flex justify-center items-center gap-2">
-                <BriefcaseBusiness className="w-8 h-8 text-white" />
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-2 sm:mb-4 flex justify-center items-center gap-2 text-white">
+                <BriefcaseBusiness className="w-6 h-6 sm:w-8 sm:h-8" />
                 インターン生内定企業
               </h2>
-              <p className="text-lg text-white/80">
+              <p className="text-sm sm:text-base md:text-lg text-white/80">
                 実際に成果を出し、多くの優良企業へ内定しています。
               </p>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-3">
-              {companies.map((company, idx) => (
-                <span
-                  key={idx}
-                  className="px-3 py-1 border border-white/40 rounded-full text-lg text-white/80 hover:bg-white hover:text-blue-900 transition"
-                >
-                  {company}
-                </span>
+            <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+              {companies.map((c, i) => (
+                <li key={i} className="group">
+                  <div
+                    className="h-14 sm:h-16 rounded-xl bg-white/10 backdrop-blur-[2px] border border-white/15 flex items-center justify-center
+                        transition hover:bg-white/20 hover:border-white/25"
+                  >
+                    {" "}
+                    <span className="text-xs sm:text-sm text-white/90 group-hover:text-white  text-center line-clamp-2">
+                      {c}
+                    </span>
+                  </div>
+                </li>
               ))}
-            </div>
+            </ul>
 
-            <div className="text-center">
-              <p className="text-sm text-white/50 pt-4">
-                ※ 一部抜粋。その他にも多数の実績があります。
-              </p>
-            </div>
+            <p className="text-center text-xs sm:text-sm text-white/60 pt-1">
+              ※ 一部抜粋。その他にも多数の実績があります。
+            </p>
           </div>
         </div>
       </section>
